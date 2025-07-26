@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { lessons } from '../intro/lessons';
+import { lessons } from './lessons';
 
 export default function LessonPage() {
   const { lessonId } = useParams();
@@ -24,6 +24,14 @@ export default function LessonPage() {
   }
 }`);
   const [output, setOutput] = useState('');
+  
+  useEffect(() => {
+    setTimeout(() => {
+      if (window.pym && window.pym.autoInit) {
+        window.pym.autoInit();
+      }
+    }, 0);
+  }, [lessonId]);
 
   useEffect(() => {
     setQuizAnswers({});
@@ -121,10 +129,11 @@ export default function LessonPage() {
     </div>
   );
   } else if (lessonId === '1-3') {
-    content = (
+
+  content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s write your first Java program! </strong>  
+        <strong>Let’s write your first Java program!</strong>  
         In Java, you write instructions inside a <span className="text-green-700">class</span>. The program starts running at the <span className="text-purple-700">main</span> method.  
         To show a message on the screen, you use <code className="bg-gray-200 px-1">System.out.println()</code>.
       </p>
@@ -140,34 +149,34 @@ export default function LessonPage() {
         <pre className="bg-gray-100 p-3 rounded mb-4">
 {`public class Main {
   public static void main(String[] args) {
-    System.out.println("Hello, Java!");
+    System.out.println("Hello, World!");
   }
 }`}
         </pre>
       )}
 
       <p className="text-lg mb-3">
-        Try writing your own! Change the text inside the quotes and run it!
+        Try it below! Paste the starting code into the code editor, change the text inside the quotes and execute it. Dont forget the <code>;</code> at the end!
       </p>
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    //Enter code here!
+  }
+}`}
+        </pre>
 
-      <textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        placeholder={`public class Main {\n  public static void main(String[] args) {\n    // Your code here!\n  }\n}`}
-        className="w-full h-48 bg-gray-100 p-2 mb-4 rounded font-mono"
-      />
-
-      <button
-        onClick={runCode}
-        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
-      >
-        ▶ Run Code
-      </button>
-
-      <pre className="bg-black text-green-400 p-4 mt-4 rounded">{output}</pre>
+      <div
+        data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
+        style={{
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          overflow: 'hidden',
+        }}
+      ></div>
     </div>
   );
-  } else if (lessonId === '1-4') {
+} else if (lessonId === '1-4') {
     content = (
   <div className="p-6">
     <div className="mb-6">
@@ -242,7 +251,7 @@ else if (lessonId === '2-2') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s practice with</strong> <code>int</code> and <code>double</code>. Below is a starting structure — complete it and run to see your result!
+        <strong>Let’s practice with</strong> <code>int</code> and <code>double</code>. Below is a starting structure — paste it into the code editor and execute to see your result!
       </p>
 
       <pre className="bg-gray-100 p-3 rounded mb-3">
@@ -275,21 +284,8 @@ else if (lessonId === '2-2') {
         </pre>
       )}
 
-      <textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        placeholder={`public class Main {\n  public static void main(String[] args) {\n    // Your code here!\n  }\n}`}
-        className="w-full h-48 bg-gray-100 p-2 mb-4 rounded font-mono"
-      />
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
 
-      <button
-        onClick={runCode}
-        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
-      >
-        ▶ Run Code
-      </button>
-
-      <pre className="bg-black text-green-400 p-4 mt-4 rounded">{output}</pre>
     </div>
   );
 }
@@ -309,8 +305,16 @@ boolean lovesPizza = true;`}
       </pre>
 
       <p className="text-lg mb-3">
-        Practice writing your own. Declare a String and a boolean and print the values:
+        Practice writing your own. Declare a String and a boolean and print the values using the starter code below:
       </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`public class Main {
+  public static void main(String[] args) {
+    // Write code here
+  }
+}`}
+      </pre>
 
       <button
         onClick={() => setShowHint(!showHint)}
@@ -332,21 +336,8 @@ boolean lovesPizza = true;`}
         </pre>
       )}
 
-      <textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        placeholder={`public class Main {\n  public static void main(String[] args) {\n    // Your code here!\n  }\n}`}
-        className="w-full h-48 bg-gray-100 p-2 mb-4 rounded font-mono"
-      />
+     <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
 
-      <button
-        onClick={runCode}
-        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
-      >
-        ▶ Run Code
-      </button>
-
-      <pre className="bg-black text-green-400 p-4 mt-4 rounded">{output}</pre>
     </div>
   );
 }
@@ -354,7 +345,7 @@ else if (lessonId === '2-4') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        ➕ Java can do math with: <code>+</code> <code>-</code> <code>*</code> <code>/</code>.
+        Java can do math with: <code>+</code> <code>-</code> <code>*</code> <code>/</code>.
         These symbols mean add, subtract, multiply, and divide.
       </p>
 
@@ -365,8 +356,15 @@ int sum = a + b; `}
       </pre>
 
       <p className="text-lg mb-3">
-        Try it: declare your own values and print some operations!
+        Try it: declare your own values and print some operations using the starter code!
       </p>
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`public class Main {
+  public static void main(String[] args) {
+    // Write code here
+  }
+}`}
+      </pre>
 
       <button
         onClick={() => setShowHint(!showHint)}
@@ -390,21 +388,8 @@ int sum = a + b; `}
         </pre>
       )}
 
-      <textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        placeholder={`public class Main {\n  public static void main(String[] args) {\n    // Your code here!\n  }\n}`}
-        className="w-full h-48 bg-gray-100 p-2 mb-4 rounded font-mono"
-      />
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
 
-      <button
-        onClick={runCode}
-        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
-      >
-        ▶ Run Code
-      </button>
-
-      <pre className="bg-black text-green-400 p-4 mt-4 rounded">{output}</pre>
     </div>
   );
 }
@@ -413,8 +398,8 @@ else if (lessonId === '2-5') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        ➗ Java also has advanced math operators like <code>%</code> (modulus) and <code>++</code> (increment).
-        <br /> <code>%</code> gives you the remainder when dividing numbers.
+        Java also has advanced math operators like <code>%</code> (modulus) and <code>++</code> (increment).
+        <br />  <code> %</code> gives you the remainder when dividing numbers.
       </p>
 
       <pre className="bg-gray-100 p-3 rounded mb-3">
@@ -425,9 +410,16 @@ int increment = 10++;`}
       </pre>
 
       <p className="text-lg mb-3">
-        Try it: declare your own numbers and test modulus or increment!
+        Try it: declare your own numbers and test modulus or increment using the starter code!
       </p>
 
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`public class Main {
+  public static void main(String[] args) {
+    // Write code here
+  }
+}`}
+      </pre>
       <button
         onClick={() => setShowHint(!showHint)}
         className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
@@ -451,25 +443,11 @@ int increment = 10++;`}
         </pre>
       )}
 
-      <textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        placeholder={`public class Main {\n  public static void main(String[] args) {\n    // Your code here!\n  }\n}`}
-        className="w-full h-48 bg-gray-100 p-2 mb-4 rounded font-mono"
-      />
+    <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
 
-      <button
-        onClick={runCode}
-        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
-      >
-        ▶ Run Code
-      </button>
-
-      <pre className="bg-black text-green-400 p-4 mt-4 rounded">{output}</pre>
-    </div>
+  </div>
   );
 }
-
 
 else if (lessonId === '2-6') {
   content = (
@@ -573,18 +551,27 @@ public class Main {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        🗣️ Let’s use <code>Scanner</code> to get input from the user!
+        Let’s use <code>Scanner</code> to get input from the user!
         The <code>Scanner</code> class lets your program read what someone types.
       </p>
 
       <p className="text-lg mb-3">
-        Try this: use Scanner to ask the user for their name and greet them!
+        Try this: use Scanner to ask the user for their name and greet them! Enter the input in the "STDIN Input" field and execute your code!
       </p>
 
       <p className="text-m mb-3">
         Tip: Make sure to add the <code>import java.util.Scanner;</code> import to make sure your code compiles!
       </p>
 
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    // Write code here
+  }
+}`}
+      </pre>
       <button
         onClick={() => setShowHint(!showHint)}
         className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
@@ -607,21 +594,8 @@ public class Main {
         </pre>
       )}
 
-      <textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        placeholder={`import java.util.Scanner;\n\npublic class Main {\n  public static void main(String[] args) {\n    // Your code here!\n  }\n}`}
-        className="w-full h-48 bg-gray-100 p-2 mb-4 rounded font-mono"
-      />
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
 
-      <button
-        onClick={runCode}
-        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
-      >
-        ▶ Run Code
-      </button>
-
-      <pre className="bg-black text-green-400 p-4 mt-4 rounded">{output}</pre>
     </div>
   );
 } else if (lessonId === '3-3') {
@@ -663,15 +637,15 @@ public class Main {
   content = (
     <div className="p-6">
       <p className="text-lg mb-3 text-blue-900">
-        🐞 <strong>Debugging</strong> means finding and fixing mistakes (bugs) in your code. Even professional developers make mistakes all the time — the key is knowing how to spot them and fix them!
+        <strong>Debugging</strong> means finding and fixing mistakes (bugs) in your code. Even professional developers make mistakes all the time — the key is knowing how to spot them and fix them!
       </p>
 
       <p className="text-lg mb-3">
-        🧩 Bugs can be tiny, like a missing semicolon, or bigger, like using the wrong variable or logic. The good news? Your computer tries to help you by showing <strong>error messages</strong> in the console.
+        Bugs can be tiny, like a missing semicolon, or bigger, like using the wrong variable or logic. The good news? Your computer tries to help you by showing <strong>error messages</strong> in the console.
       </p>
 
       <p className="text-lg mb-3">
-        📣 <strong>Read error messages carefully!</strong> For example:
+        <strong>Read error messages carefully!</strong> For example:
       </p>
 
       <pre className="bg-gray-100 p-3 rounded mb-3">
@@ -745,12 +719,22 @@ public class Main {
   content = (
     <div className="p-6">
       <p className="text-lg mb-3">
-        🎉 <strong>Final mini project:</strong> Build an age calculator!
+        <strong>Final mini project:</strong> Build an age calculator!
       </p>
 
       <p className="text-lg mb-3">
-        Ask the user for their birth year using <code>Scanner</code>. Then calculate their age and print it.
+        Ask the user for their birth year using <code>Scanner</code>, then calculate their age and print it. Remeber to enter the input in the "STDIN Input" field and execute your code!
       </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    // Write code here
+  }
+}`}
+      </pre>
 
       <div className="mb-4">
         <button
@@ -818,22 +802,9 @@ public class Main {
         )}
       </div>
 
-      <textarea
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        placeholder={`public class Main {\n  public static void main(String[] args) {\n    // Your code here!\n  }\n}`}
-        className="w-full h-48 bg-gray-100 p-2 mb-4 rounded font-mono"
-      />
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
 
-      <button
-        onClick={runCode}
-        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
-      >
-        ▶ Run Code
-      </button>
-
-      <pre className="bg-black text-green-400 p-4 mt-4 rounded">{output}</pre>
-    </div>
+  </div>
   );
 }
 
@@ -851,7 +822,7 @@ public class Main {
         {nextLesson ? (
           <Link to={`/lesson/${nextLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next →</Link>
         ) : (
-          <p className="text-green-700 font-bold text-xl">Great job! You have now finished the Beginner level!</p>
+          <p className="text-green-700 font-bold text-xl">Great job! You have now finished the Intro level!</p>
         )}
       </div>
     </div>
