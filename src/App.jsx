@@ -1,21 +1,19 @@
-// src/App.jsx
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import './App.css'
+import './index.css'
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import './index.css';
-
-import Home from './components/Home.jsx';
-import Footer from './components/Footer.jsx';
-import IntroToJava from './pages/IntroToJava';
-import Beginner from './pages/Beginner';
-import Intermediate from './pages/Intermediate';
-import Navbar from './components/Navbar.jsx';
-import LessonPage from './pages/intro/LessonPage.jsx';
+import Home from './components/Home.jsx'
+import Footer from './components/Footer.jsx'
+import IntroToJava from './pages/IntroToJava'
+import Beginner from './pages/Beginner'
+import Intermediate from './pages/Intermediate'
+import Navbar from './components/Navbar.jsx'
+import LessonPage from './pages/intro/LessonPage.jsx'
 
 function App() {
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -25,8 +23,8 @@ function App() {
         <Route path="/lesson/:lessonId" element={<LessonPage />} />
       </Routes>
       <Footer />
-    </Router>
-  );
+    </>
+  )
 }
 
-export default App;
+export default App
