@@ -1,23 +1,22 @@
-// src/data/lessons.js
 
 export const lessons = [
-  { id: "1-1", title: "1.1: What is Java?", content: "Java is a popular programming language used in web, mobile, and enterprise development." },
-  { id: "1-2", title: "1.2: Installing Java", content: "Learn how to download and install the JDK and set up your IDE." },
-  { id: "1-3", title: "1.3: Hello World", content: "Write your first 'Hello, World!' Java program and run it." },
-  { id: "1-4", title: "1.4: Unit 1 Quiz", content: "Test what you’ve learned so far about Java basics." },
+  { id: "5-1", title: "5.1: What are Conditions?", content: "Learn how to make choices in your programs using conditions." },
+  { id: "5-2", title: "5.2: If Statements", content: "Write simple `if` statements to check if something is true." },
+  { id: "5-3", title: "5.3: Else and Else If", content: "Handle other options using `else` and `else if`." },
+  { id: "5-4", title: "5.4: Unit 5 Quiz", content: "Check your understanding of Java conditions." },
 
-  { id: "2-1", title: "2.1: Variables", content: "Learn about variables and how to create them in Java." },
-  { id: "2-2", title: "2.2: Integers & Doubles", content: "Understand how Java handles whole and decimal numbers." },
-  { id: "2-3", title: "2.3: Strings & Booleans", content: "Store words and true/false values with Strings and Booleans." },
-  { id: "2-4", title: "2.4: Simple Operations", content: "Add, subtract, multiply, and divide numbers." },
-  { id: "2-5", title: "2.5: Advanced Operations", content: "Learn about increments and modulus." },
-  { id: "2-6", title: "2.6: Unit 2 Quiz", content: "Quiz yourself on variables and data types." },
+  { id: "6-1", title: "6.1: Why Use Loops?", content: "Understand why repeating code is useful and efficient." },
+  { id: "6-2", title: "6.2: While Loops", content: "Use `while` loops to repeat actions while a condition is true." },
+  { id: "6-3", title: "6.3: For Loops", content: "Learn to repeat actions a certain number of times using `for` loops." },
+  { id: "6-4", title: "6.4: Do-While Loops", content: "Run a loop at least once using `do-while`." },
+  { id: "6-5", title: "6.5: Nested Loops", content: "Try loops inside other loops if you feel ready!" },
+  { id: "6-6", title: "6.6: Unit 6 Quiz", content: "Quiz yourself on Java loops and repetition." },
 
-  { id: "3-1", title: "3.1: User Input", content: "Use Scanner to get user input." },
-  { id: "3-2", title: "3.2: Combining Input & Output", content: "Combine input and output for interactive programs." },
-  { id: "3-3", title: "3.3: Unit 3 Quiz", content: "Test your knowledge of input and output." },
+  { id: "7-1", title: "7.1: What is a Method?", content: "Understand why methods help you organize and reuse code." },
+  { id: "7-2", title: "7.2: Create & Call Methods", content: "Learn how to write a simple method and use it in your program." },
+  { id: "7-3", title: "7.3: Parameters & Return", content: "Pass data into methods and get results back." },
+  { id: "7-4", title: "7.4: Unit 7 Quiz", content: "Quiz yourself on Java methods." },
 
-  { id: "4-1", title: "4.1: Debugging Basics", content: "Learn to fix common coding mistakes." },
-  { id: "4-2", title: "4.2: Intro to Java Review Quiz", content: "Review what you’ve learned with a final quiz." },
-  { id: "4-3", title: "4.3: Mini Project: Age Calculator", content: "Build a small program that calculates a user’s age." },
+  { id: "8-1", title: "8.1: Beginner Review Quiz", content: "Wrap up your beginner lessons with a quiz!" },
+  { id: "8-2", title: "8.2: Mini Project: Guessing Game", content: "Practice using conditions and loops by building a guessing game." },
 ];
