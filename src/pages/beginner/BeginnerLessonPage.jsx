@@ -1,7 +1,7 @@
 // src/pages/intro/LessonPage.jsx
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { lessons } from '../../data/beginner-lessons'
+import { lessons } from './beginner-lessons'
 
 export default function LessonPage() {
   const { lessonId } = useParams()
