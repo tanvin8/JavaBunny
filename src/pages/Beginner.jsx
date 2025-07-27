@@ -1,10 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-  FaLaptopCode,
-  FaQuestionCircle,
-  FaBook,
-  FaCode,
+import {FaLaptopCode,FaQuestionCircle,FaBook,FaCode,
 } from 'react-icons/fa';
 
 function Beginner() {
@@ -19,47 +15,25 @@ function Beginner() {
         <div>
           <h1 className="text-left text-golden text-2xl mb-4">Unit 5: Conditions & Decisions</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link to="/lesson/5-1">
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                <div className="flex items-center mb-4">
-                  <FaLaptopCode className="text-2xl mr-3 text-blue-500" />
-                  <p className="text-lg">5.1: What are Conditions?</p>
+            {[
+              { id: '5-1', title: '5.1: What are Conditions?', desc: 'Learn how to make choices in your programs using conditions.' },
+              { id: '5-2', title: '5.2: If Statements', desc: 'Write simple `if` statements to check if something is true.' },
+              { id: '5-3', title: '5.3: Else and Else If', desc: 'Handle other options using `else` and `else if`.' },
+              { id: '5-4', title: '5.4: Unit 5 Quiz', desc: 'Check your understanding of Java conditions.', icon: <FaQuestionCircle className="text-2xl mr-3 text-green-500" /> },
+            ].map(({ id, title, desc, icon }) => (
+              <Link to={`/beginner/${id}`} key={id}>
+                <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                  <div className="flex items-center mb-4">
+                    {icon || <FaLaptopCode className="text-2xl mr-3 text-blue-500" />}
+                    <p className="text-lg">{title}</p>
+                  </div>
+                  <p className="text-lg text-gray-700">{desc}</p>
                 </div>
-                <p className="text-lg text-gray-700">Learn how to make choices in your programs using conditions.</p>
-              </div>
-            </Link>
-
-            <Link to="/lesson/5-2">
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                <div className="flex items-center mb-4">
-                  <FaLaptopCode className="text-2xl mr-3 text-blue-500" />
-                  <p className="text-lg">5.2: If Statements</p>
-                </div>
-                <p className="text-lg text-gray-700">Write simple `if` statements to check if something is true.</p>
-              </div>
-            </Link>
-
-            <Link to="/lesson/5-3">
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                <div className="flex items-center mb-4">
-                  <FaLaptopCode className="text-2xl mr-3 text-blue-500" />
-                  <p className="text-lg">5.3: Else and Else If</p>
-                </div>
-                <p className="text-lg text-gray-700">Handle other options using `else` and `else if`.</p>
-              </div>
-            </Link>
-
-            <Link to="/lesson/5-4">
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                <div className="flex items-center mb-4">
-                  <FaQuestionCircle className="text-2xl mr-3 text-green-500" />
-                  <p className="text-lg">5.4: Unit 5 Quiz</p>
-                </div>
-                <p className="text-lg text-gray-700">Check your understanding of Java conditions.</p>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
         </div>
+
 
         {/* Unit 6 */}
         <div>
@@ -73,7 +47,7 @@ function Beginner() {
               { id: '6-5', title: '6.5: Nested Loops', desc: 'Try loops inside other loops if you feel ready!' },
               { id: '6-6', title: '6.6: Unit 6 Quiz', desc: 'Quiz yourself on Java loops and repetition.', icon: <FaQuestionCircle className="text-2xl mr-3 text-green-500" /> },
             ].map(({ id, title, desc, icon }) => (
-              <Link to={`/lesson/${id}`} key={id}>
+              <Link to={`/beginner/${id}`} key={id}>
                 <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                   <div className="flex items-center mb-4">
                     {icon || <FaLaptopCode className="text-2xl mr-3 text-blue-500" />}
@@ -96,7 +70,7 @@ function Beginner() {
               { id: '7-3', title: '7.3: Parameters & Return', desc: 'Pass data into methods and get results back.' },
               { id: '7-4', title: '7.4: Unit 7 Quiz', desc: 'Quiz yourself on Java methods.', icon: <FaQuestionCircle className="text-2xl mr-3 text-green-500" /> },
             ].map(({ id, title, desc, icon }) => (
-              <Link to={`/lesson/${id}`} key={id}>
+              <Link to={`/beginner/${id}`} key={id}>
                 <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                   <div className="flex items-center mb-4">
                     {icon || <FaLaptopCode className="text-2xl mr-3 text-blue-500" />}
@@ -113,24 +87,20 @@ function Beginner() {
         <div>
           <h1 className="text-left text-golden text-2xl mb-4">Unit 8: Review & Practice</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link to="/lesson/8-1">
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                <div className="flex items-center mb-4">
-                  <FaQuestionCircle className="text-2xl mr-3 text-green-500" />
-                  <p className="text-lg">8.1: Beginner Review Quiz</p>
+            {[
+              { id: '8-1', title: '8.1: Beginner Review Quiz', desc: 'Wrap up your beginner lessons with a quiz!', icon: <FaQuestionCircle className="text-2xl mr-3 text-green-500" /> },
+              { id: '8-2', title: '8.2: Mini Project: Guessing Game', desc: 'Practice using conditions and loops!', icon: <FaCode className="text-2xl mr-3 text-red-500" /> },
+            ].map(({ id, title, desc, icon }) => (
+              <Link to={`/beginner/${id}`} key={id}>
+                <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                  <div className="flex items-center mb-4">
+                    {icon || <FaLaptopCode className="text-2xl mr-3 text-blue-500" />}
+                    <p className="text-lg">{title}</p>
+                  </div>
+                  <p className="text-lg text-gray-700">{desc}</p>
                 </div>
-                <p className="text-lg text-gray-700">Wrap up your beginner lessons with a quiz!</p>
-              </div>
-            </Link>
-            <Link to="/lesson/8-2">
-              <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
-                <div className="flex items-center mb-4">
-                  <FaCode className="text-2xl mr-3 text-red-500" />
-                  <p className="text-lg">8.2: Mini Project: Guessing Game</p>
-                </div>
-                <p className="text-lg text-gray-700">Practice using conditions and loops!</p>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
