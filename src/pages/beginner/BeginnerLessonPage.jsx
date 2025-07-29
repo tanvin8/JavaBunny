@@ -128,7 +128,7 @@ export default function BeginnerLessonPage() {
       </p>
     </div>
   );
-  } else if (lessonId === '1-3') {
+  } else if (lessonId === '5-3') {
 
   content = (
     <div className="p-6">
@@ -176,7 +176,7 @@ export default function BeginnerLessonPage() {
       ></div>
     </div>
   );
-} else if (lessonId === '1-4') {
+} else if (lessonId === '5-4') {
     content = (
   <div className="p-6">
     <div className="mb-6">
@@ -214,7 +214,7 @@ export default function BeginnerLessonPage() {
 
 /** === UNIT 2 === **/
 
-else if (lessonId === '2-1') {
+else if (lessonId === '6-1') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4">
@@ -247,7 +247,7 @@ boolean isStudent = true;`}
   );
 }
 
-else if (lessonId === '2-2') {
+else if (lessonId === '6-2') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
@@ -290,7 +290,7 @@ else if (lessonId === '2-2') {
   );
 }
 
-else if (lessonId === '2-3') {
+else if (lessonId === '6-3') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
@@ -341,7 +341,7 @@ boolean lovesPizza = true;`}
     </div>
   );
 }
-else if (lessonId === '2-4') {
+else if (lessonId === '6-4') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
@@ -394,7 +394,7 @@ int sum = a + b; `}
   );
 }
 
-else if (lessonId === '2-5') {
+else if (lessonId === '6-5') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
@@ -449,7 +449,7 @@ int increment = 10++;`}
   );
 }
 
-else if (lessonId === '2-6') {
+else if (lessonId === '6-6') {
   content = (
     <div className="p-6">
       <div className="mb-6">
@@ -484,7 +484,7 @@ else if (lessonId === '2-6') {
 
 // === UNIT 3 ===
 
-else if (lessonId === '3-1') {
+else if (lessonId === '7-1') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-3">
@@ -547,7 +547,7 @@ public class Main {
        <img className="w-64 my-4" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aGFwb2RmbmVzdTZjN3AxY21kZDFyM2NlZjE2dHd0cW05dnBrYWx1dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jqMyza0N8JbAl2WjPO/giphy.gif" alt="Input GIF" />
     </div>
   );
-} else if (lessonId === '3-2') {
+} else if (lessonId === '7-2') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
@@ -598,7 +598,37 @@ public class Main {
 
     </div>
   );
-} else if (lessonId === '3-3') {
+} else if (lessonId === '7-3') {
+  content = (
+    <div className="p-6">
+      <div className="mb-6">
+        <p className="font-bold mb-2">1. Which class reads user input?</p>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Input')} /> Input</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Printer')} /> Printer</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Scanner')} /> Scanner</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Output')} /> Output</label><br/>
+        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
+      </div>
+      <div className="mb-6">
+        <p className="font-bold mb-2">2. Which method reads a whole line?</p>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'nextLine')} /> nextLine()</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'printLine')} /> printLine()</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'next')} /> next()</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'line')} /> line()</label><br/>
+        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
+      </div>
+      <div className="mb-6">
+        <p className="font-bold mb-2">3. What goes in Scanner's parentheses?</p>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System.in</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> System.out</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> Output</label><br/>
+        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
+      </div>
+      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"> Submit Quiz</button>
+    </div>
+  );
+}else if (lessonId === '7-4') {
   content = (
     <div className="p-6">
       <div className="mb-6">
@@ -633,65 +663,7 @@ public class Main {
 
 // === UNIT 4 ===
 
- else if (lessonId === '4-1') {
-  content = (
-    <div className="p-6">
-      <p className="text-lg mb-3 text-blue-900">
-        <strong>Debugging</strong> means finding and fixing mistakes (bugs) in your code. Even professional developers make mistakes all the time — the key is knowing how to spot them and fix them!
-      </p>
-
-      <p className="text-lg mb-3">
-        Bugs can be tiny, like a missing semicolon, or bigger, like using the wrong variable or logic. The good news? Your computer tries to help you by showing <strong>error messages</strong> in the console.
-      </p>
-
-      <p className="text-lg mb-3">
-        <strong>Read error messages carefully!</strong> For example:
-      </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`Main.java:5: error: ';' expected
-  System.out.println("Hello")
-                                ^
-`}
-      </pre>
-
-      <p className="text-lg mb-3">
-        This means Java found a problem at line 5 — it expected a <code>;</code> but didn’t find one. Always check the line number and the <code>^</code> symbol that points to where the compiler got confused.
-      </p>
-
-      <p className="text-lg mb-3">
-        Another example:
-      </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`Main.java:6: error: cannot find symbol
-  System.out.println(name);
-                      ^
-`}
-      </pre>
-
-      <p className="text-lg mb-3">
-        This means Java doesn’t know what <code>name</code> is — maybe you forgot to declare it, or you typed it wrong. Double-check your spelling!
-      </p>
-
-      <p className="text-lg mb-3">
-        <strong>Good debugging habits:</strong>  
-        <ul className="list-disc ml-6 mb-3">
-          <li>Check semicolons and braces <code>{`{}`}</code></li>
-          <li>Use clear indentation to see what’s inside what</li>
-          <li>Add <code>System.out.println()</code> to see variable values</li>
-          <li>Test your code step by step</li>
-        </ul>
-      </p>
-
-      <p className="text-lg mb-3">
-        Remember: debugging is normal. Each bug you fix makes you a stronger coder! 🧑‍💻✨
-      </p>
-
-      <img className="w-64 my-4" src="https://media.giphy.com/media/xT0xeJpnrWC4XWblEk/giphy.gif" alt="Debugging GIF" />
-    </div>
-  );
-} else if (lessonId === '4-2') {
+ else if (lessonId === '8-1') {
   content = (
     <div className="p-6">
       <div className="mb-6">
@@ -715,7 +687,7 @@ public class Main {
       <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
     </div>
   );
-} else if (lessonId === '4-3') {
+} else if (lessonId === '8-2') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-3">
@@ -815,14 +787,14 @@ public class Main {
       {content}
       <div className="flex justify-between mt-12">
         {prevLesson ? (
-          <Link to={`/lesson/${prevLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">← Back</Link>
+          <Link to={`/beginner/${prevLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">← Back</Link>
         ) : (
           <button onClick={() => navigate(-1)} className="inline-block bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">← Back</button>
         )}
         {nextLesson ? (
-          <Link to={`/lesson/${nextLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next →</Link>
+          <Link to={`/beginner/${nextLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next →</Link>
         ) : (
-          <p className="text-green-700 font-bold text-xl">Great job! You have now finished the Intro level!</p>
+          <p className="text-green-700 font-bold text-xl">Great job! You have now finished the Beginner level!</p>
         )}
       </div>
     </div>
