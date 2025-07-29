@@ -308,9 +308,9 @@ export default function IntermediateLessonPage() {
 
   }
 
-/** === UNIT 2 === **/
+/** === UNIT 10 === **/
 
-else if (lessonId === '6-1') {
+else if (lessonId === '10-1') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4">
@@ -343,7 +343,7 @@ boolean isStudent = true;`}
   );
 }
 
-else if (lessonId === '6-2') {
+else if (lessonId === '10-2') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
@@ -384,60 +384,7 @@ else if (lessonId === '6-2') {
 
     </div>
   );
-}
-
-else if (lessonId === '6-3') {
-  content = (
-    <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        <code>String</code> and <code>boolean</code> are also common.
-        A <code>String</code> always goes in double quotes.
-        A <code>boolean</code> is just <code>true</code> or <code>false</code>.
-      </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`String city = "New York";
-boolean lovesPizza = true;`}
-      </pre>
-
-      <p className="text-lg mb-3">
-        Practice writing your own. Declare a String and a boolean and print the values using the starter code below:
-      </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    // Write code here
-  }
-}`}
-      </pre>
-
-      <button
-        onClick={() => setShowHint(!showHint)}
-        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
-      >
-        {showHint ? 'Hide Example' : 'Show Example'}
-      </button>
-
-      {showHint && (
-        <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    String city = "New York";
-    boolean lovesPizza = true;
-    System.out.println(city);
-    System.out.println(lovesPizza);
-  }
-}`}
-        </pre>
-      )}
-
-     <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
-    </div>
-  );
-}
-else if (lessonId === '6-4') {
+}else if (lessonId === '10-3') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
@@ -490,97 +437,9 @@ int sum = a + b; `}
   );
 }
 
-else if (lessonId === '6-5') {
-  content = (
-    <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        Java also has advanced math operators like <code>%</code> (modulus) and <code>++</code> (increment).
-        <br />  <code> %</code> gives you the remainder when dividing numbers.
-      </p>
+// === UNIT 11 ===
 
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`int x = 10;
-int y = 3;
-int remainder = x % y;
-int increment = 10++;`}
-      </pre>
-
-      <p className="text-lg mb-3">
-        Try it: declare your own numbers and test modulus or increment using the starter code!
-      </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    // Write code here
-  }
-}`}
-      </pre>
-      <button
-        onClick={() => setShowHint(!showHint)}
-        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
-      >
-        {showHint ? 'Hide Example' : 'Show Example'}
-      </button>
-
-      {showHint && (
-        <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    int x = 10;
-    int y = 3;
-    System.out.println(x % y); // 10 divided by 3 leaves remainder 1
-
-    int z = 5;
-    z++;
-    System.out.println(z); // 6
-  }
-}`}
-        </pre>
-      )}
-
-    <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
-  </div>
-  );
-}
-
-else if (lessonId === '6-6') {
-  content = (
-    <div className="p-6">
-      <div className="mb-6">
-        <p className="font-bold mb-2">1. What data type holds text?</p>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'String')} /> String</label><br />
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'int')} /> int</label><br />
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'double')} /> double</label><br />
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'boolean')} /> boolean</label>
-        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
-      </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">2. Which the output for <code>boolean</code>?</p>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'numbers')} /> numbers</label><br />
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'words')} /> words</label><br />
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'true/false')} /> true/false</label><br />
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'symbols')} /> symbols</label>
-        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
-      </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">3. Which symbol adds numbers?</p>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '-')} /> -</label><br />
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '*')} /> *</label><br />
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '/')} /> /</label><br />
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '+')} /> +</label><br />
-        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
-      </div>
-      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
-    </div>
-  );
-}
-
-
-// === UNIT 3 ===
-
-else if (lessonId === '7-1') {
+else if (lessonId === '11-1') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-3">
@@ -643,88 +502,7 @@ public class Main {
        <img className="w-64 my-4" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aGFwb2RmbmVzdTZjN3AxY21kZDFyM2NlZjE2dHd0cW05dnBrYWx1dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jqMyza0N8JbAl2WjPO/giphy.gif" alt="Input GIF" />
     </div>
   );
-} else if (lessonId === '7-2') {
-  content = (
-    <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        Let’s use <code>Scanner</code> to get input from the user!
-        The <code>Scanner</code> class lets your program read what someone types.
-      </p>
-
-      <p className="text-lg mb-3">
-        Try this: use Scanner to ask the user for their name and greet them! Enter the input in the "STDIN Input" field and execute your code!
-      </p>
-
-      <p className="text-m mb-3">
-        Tip: Make sure to add the <code>import java.util.Scanner;</code> import to make sure your code compiles!
-      </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`import java.util.Scanner;
-
-public class Main {
-  public static void main(String[] args) {
-    // Write code here
-  }
-}`}
-      </pre>
-      <button
-        onClick={() => setShowHint(!showHint)}
-        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
-      >
-        {showHint ? 'Hide Example' : 'Show Example'}
-      </button>
-
-      {showHint && (
-        <pre className="bg-gray-100 p-3 rounded mb-3">
-{`import java.util.Scanner;
-
-public class Main {
-  public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-    System.out.print("Enter your name: ");
-    String name = input.nextLine();
-    System.out.println("Hello, " + name + "!");
-  }
-}`}
-        </pre>
-      )}
-
-      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
-    </div>
-  );
-} else if (lessonId === '7-3') {
-  content = (
-    <div className="p-6">
-      <div className="mb-6">
-        <p className="font-bold mb-2">1. Which class reads user input?</p>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Input')} /> Input</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Printer')} /> Printer</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Scanner')} /> Scanner</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Output')} /> Output</label><br/>
-        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
-      </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">2. Which method reads a whole line?</p>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'nextLine')} /> nextLine()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'printLine')} /> printLine()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'next')} /> next()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'line')} /> line()</label><br/>
-        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
-      </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">3. What goes in Scanner's parentheses?</p>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System.in</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> System.out</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> Output</label><br/>
-        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
-      </div>
-      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"> Submit Quiz</button>
-    </div>
-  );
-}else if (lessonId === '7-4') {
+} else if (lessonId === '11-2') {
   content = (
     <div className="p-6">
       <div className="mb-6">
@@ -755,11 +533,9 @@ public class Main {
     </div>
   );
 }
+// === UNIT 12 ===
 
-
-// === UNIT 4 ===
-
- else if (lessonId === '8-1') {
+ else if (lessonId === '12-1') {
   content = (
     <div className="p-6">
       <div className="mb-6">
@@ -783,98 +559,7 @@ public class Main {
       <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
     </div>
   );
-} else if (lessonId === '8-2') {
-  content = (
-    <div className="p-6">
-      <p className="text-lg mb-3">
-        <strong>Final mini project:</strong> Build an age calculator!
-      </p>
-
-      <p className="text-lg mb-3">
-        Ask the user for their birth year using <code>Scanner</code>, then calculate their age and print it. Remeber to enter the input in the "STDIN Input" field and execute your code!
-      </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`import java.util.Scanner;
-
-public class Main {
-  public static void main(String[] args) {
-    // Write code here
-  }
-}`}
-      </pre>
-
-      <div className="mb-4">
-        <button
-          onClick={() => setShowHint1(!showHint1)}
-          className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600"
-        >
-          {showHint1 ? 'Hide Hint 1' : 'Show Hint 1'}
-        </button>
-        {showHint1 && (
-          <p className="bg-gray-100 p-3 rounded mt-2">
-            <strong>Hint 1:</strong> Start by importing <code>Scanner</code> at the top of your file. Inside <code>main</code>, create a <code>Scanner</code> object.
-          </p>
-        )}
-      </div>
-
-      <div className="mb-4">
-        <button
-          onClick={() => setShowHint2(!showHint2)}
-          className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600"
-        >
-          {showHint2 ? 'Hide Hint 2' : 'Show Hint 2'}
-        </button>
-        {showHint2 && (
-          <p className="bg-gray-100 p-3 rounded mt-2">
-            <strong>Hint 2:</strong> Use <code>nextInt()</code> to read the birth year from the user’s input.
-          </p>
-        )}
-      </div>
-
-      <div className="mb-4">
-        <button
-          onClick={() => setShowHint3(!showHint3)}
-          className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600"
-        >
-          {showHint3 ? 'Hide Hint 3' : 'Show Hint 3'}
-        </button>
-        {showHint3 && (
-          <p className="bg-gray-100 p-3 rounded mt-2">
-            <strong>Hint 3:</strong> To find the age, subtract the birth year from the current year (for example, use <code>2025</code>).
-          </p>
-        )}
-      </div>
-
-      <div className="mb-4">
-        <button
-          onClick={() => setShowSolution(!showSolution)}
-          className="bg-green-500 text-black px-4 py-2 rounded hover:bg-green-600"
-        >
-          {showSolution ? 'Hide Solution' : 'Show Solution'}
-        </button>
-        {showSolution && (
-          <pre className="bg-gray-100 p-3 rounded mt-2">
-{`import java.util.Scanner;
-
-public class Main {
-  public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-    System.out.print("Enter your birth year: ");
-    int birthYear = input.nextInt();
-    int age = 2025 - birthYear;
-    System.out.println("You are " + age + " years old.");
-  }
-}`}
-          </pre>
-        )}
-      </div>
-
-      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
-  </div>
-  );
-}
+} 
 
   return (
     <div className="p-[80px] bg-champagne font-quicksand py-[50px]">
@@ -890,7 +575,7 @@ public class Main {
         {nextLesson ? (
           <Link to={`/intermediate/${nextLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next →</Link>
         ) : (
-          <p className="text-green-700 font-bold text-xl">Great job! You have now finished the Beginner level!</p>
+          <p className="text-green-700 font-bold text-xl">Congratulations on completing every lesson in JavaBunny!</p>
         )}
       </div>
     </div>

@@ -11,6 +11,7 @@ import Intermediate from './pages/Intermediate'
 import Navbar from './components/Navbar.jsx'
 import LessonPage from './pages/intro/LessonPage.jsx'
 import BeginnerLessonPage from './pages/beginner/BeginnerLessonPage.jsx'
+import IntermediateLessonPage from './pages/intermediate/IntermediateLessonPage.jsx'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/intermediate" element={<Intermediate />} />
         <Route path="/intro/:lessonId" element={<LessonPage />} />
         <Route path="/beginner/:lessonId" element={<BeginnerLessonPage />} />
+        <Route path="/intermediate/:lessonId" element={<IntermediateLessonPage />} />
       </Routes>
       <Footer />
     </>
