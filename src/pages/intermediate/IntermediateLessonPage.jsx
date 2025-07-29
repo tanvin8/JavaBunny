@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { lessons } from './beginner-lessons';
+import { lessons } from './intermediate-lessons';
 
-export default function BeginnerLessonPage() {
+export default function IntermediateLessonPage() {
   const { lessonId } = useParams();
   const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ export default function BeginnerLessonPage() {
     setQuizFeedback({});
     setCode(`public class Main {
   public static void main(String[] args) {
-    System.out.println("Hello!");
+    //Enter your code here
   }
 }`);
     setOutput('');
@@ -87,8 +87,8 @@ export default function BeginnerLessonPage() {
 
   let content;
 
-  /** === UNIT 5 === **/
-  if (lessonId === '5-1') {
+  /** === UNIT 9 === **/
+  if (lessonId === '9-1') {
     content = (
     <div className="p-6">
       <p className="text-lg mb-3 text-blue-900">
@@ -106,7 +106,7 @@ export default function BeginnerLessonPage() {
       </p>
     </div>
   );
-  } else if (lessonId === '5-2') {
+  } else if (lessonId === '9-2') {
     content = (
     <div className="p-6">
       <p className="text-lg mb-3 text-blue-900">
@@ -128,7 +128,7 @@ export default function BeginnerLessonPage() {
       </p>
     </div>
   );
-  } else if (lessonId === '5-3') {
+  } else if (lessonId === '9-3') {
 
   content = (
     <div className="p-6">
@@ -176,7 +176,103 @@ export default function BeginnerLessonPage() {
       ></div>
     </div>
   );
-} else if (lessonId === '5-4') {
+}else if (lessonId === '9-4') {
+
+  content = (
+    <div className="p-6">
+      <p className="text-lg mb-4 text-blue-900">
+        <strong>Let’s write your first Java program!</strong>  
+        In Java, you write instructions inside a <span className="text-green-700">class</span>. The program starts running at the <span className="text-purple-700">main</span> method.  
+        To show a message on the screen, you use <code className="bg-gray-200 px-1">System.out.println()</code>.
+      </p>
+
+      <button
+        onClick={() => setShowHint(!showHint)}
+        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
+      >
+        {showHint ? 'Hide Example' : 'Show Example'}
+      </button>
+
+      {showHint && (
+        <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}`}
+        </pre>
+      )}
+
+      <p className="text-lg mb-3">
+        Try it below! Paste the starting code into the code editor, change the text inside the quotes and execute it. Dont forget the <code>;</code> at the end!
+      </p>
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    //Enter code here!
+  }
+}`}
+        </pre>
+
+      <div
+        data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
+        style={{
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          overflow: 'hidden',
+        }}
+      ></div>
+    </div>
+  );
+}else if (lessonId === '9-5') {
+
+  content = (
+    <div className="p-6">
+      <p className="text-lg mb-4 text-blue-900">
+        <strong>Let’s write your first Java program!</strong>  
+        In Java, you write instructions inside a <span className="text-green-700">class</span>. The program starts running at the <span className="text-purple-700">main</span> method.  
+        To show a message on the screen, you use <code className="bg-gray-200 px-1">System.out.println()</code>.
+      </p>
+
+      <button
+        onClick={() => setShowHint(!showHint)}
+        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
+      >
+        {showHint ? 'Hide Example' : 'Show Example'}
+      </button>
+
+      {showHint && (
+        <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}`}
+        </pre>
+      )}
+
+      <p className="text-lg mb-3">
+        Try it below! Paste the starting code into the code editor, change the text inside the quotes and execute it. Dont forget the <code>;</code> at the end!
+      </p>
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    //Enter code here!
+  }
+}`}
+        </pre>
+
+      <div
+        data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
+        style={{
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          overflow: 'hidden',
+        }}
+      ></div>
+    </div>
+  );
+}else if (lessonId === '9-6') {
     content = (
   <div className="p-6">
     <div className="mb-6">
@@ -212,7 +308,7 @@ export default function BeginnerLessonPage() {
 
   }
 
-/** === UNIT 6 === **/
+/** === UNIT 2 === **/
 
 else if (lessonId === '6-1') {
   content = (
@@ -482,7 +578,7 @@ else if (lessonId === '6-6') {
 }
 
 
-// === UNIT 7 ===
+// === UNIT 3 ===
 
 else if (lessonId === '7-1') {
   content = (
@@ -661,7 +757,7 @@ public class Main {
 }
 
 
-// === UNIT 8 ===
+// === UNIT 4 ===
 
  else if (lessonId === '8-1') {
   content = (
@@ -787,12 +883,12 @@ public class Main {
       {content}
       <div className="flex justify-between mt-12">
         {prevLesson ? (
-          <Link to={`/beginner/${prevLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">← Back</Link>
+          <Link to={`/intermediate/${prevLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">← Back</Link>
         ) : (
           <button onClick={() => navigate(-1)} className="inline-block bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">← Back</button>
         )}
         {nextLesson ? (
-          <Link to={`/beginner/${nextLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next →</Link>
+          <Link to={`/intermediate/${nextLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next →</Link>
         ) : (
           <p className="text-green-700 font-bold text-xl">Great job! You have now finished the Beginner level!</p>
         )}

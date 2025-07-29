@@ -815,12 +815,12 @@ public class Main {
       {content}
       <div className="flex justify-between mt-12">
         {prevLesson ? (
-          <Link to={`/lesson/${prevLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">← Back</Link>
+          <Link to={`/intro/${prevLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">← Back</Link>
         ) : (
           <button onClick={() => navigate(-1)} className="inline-block bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500">← Back</button>
         )}
         {nextLesson ? (
-          <Link to={`/lesson/${nextLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next →</Link>
+          <Link to={`/intro/${nextLesson.id}`} className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Next →</Link>
         ) : (
           <p className="text-green-700 font-bold text-xl">Great job! You have now finished the Intro level!</p>
         )}

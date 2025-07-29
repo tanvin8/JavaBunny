@@ -21,7 +21,7 @@ function App() {
         <Route path="/intro-to-java" element={<IntroToJava />} />
         <Route path="/beginner" element={<Beginner />} />
         <Route path="/intermediate" element={<Intermediate />} />
-        <Route path="/lesson/:lessonId" element={<LessonPage />} />
+        <Route path="/intro/:lessonId" element={<LessonPage />} />
         <Route path="/beginner/:lessonId" element={<BeginnerLessonPage />} />
       </Routes>
       <Footer />
