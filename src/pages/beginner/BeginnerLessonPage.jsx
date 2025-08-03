@@ -54,8 +54,8 @@ export default function BeginnerLessonPage() {
     const answerKey = {
       '5-4': { q1: 'Executes code only if a condition is true', q2: 'Repeats code foreverChecks a new condition if the first one is false', q3: 'The else block will run', q4: 'if (x > 5) { System.out.println("Hi"); }'},
       '6-6': { q1: 'for', q2: '012', q3: 'do-while' },
-      '7-3': { q1: 'A value passed into a method', q2: 'The type of value it returns', q3: 'void hello(String name)', q4: 'greet();' },
-      '4-2': { q1: 'System.out.println', q2: 'Scanner', q3: 'Debugging' }
+      '7-4': { q1: 'A value passed into a method', q2: 'The type of value it returns', q3: 'void hello(String name)', q4: 'greet();' },
+      '8-1': { q1: 'if (condition) { }', q2: 'do-while', q3: 'To organize and reuse code', q4: 'Checks another condition if the first was false'}
     }[lessonId] || {};
 
     const feedback = {};
@@ -841,6 +841,71 @@ else if (lessonId === '7-1') {
 } else if (lessonId === '7-3') {
   content = (
     <div className="p-6">
+
+      <p className="text-lg mb-3">
+        Here’s how you <strong>define</strong> a method:
+        <br />
+        <code>public static void greetUser() &#123; &#125;</code>
+      </p>
+
+      <p className="text-lg mb-3">
+        And here’s how you <strong>call</strong> that method:
+        <br />
+        <code>greetUser();</code>
+        <br />
+        This line runs everything inside the <code>greetUser</code> method.
+      </p>
+
+      <p className="text-lg mb-3">
+        You can even pass data into methods using <strong>parameters</strong>!
+        For example:
+        <br />
+        <code>public static void greetUser(String name) &#123; &#125;</code>
+      </p>
+
+      <p className="text-lg mb-3 font-bold">Starting Code:</p>
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`public class Main {
+  public static void main(String[] args) {
+    // Call your method here!
+  }
+
+  // Define your method here!
+}`}
+      </pre>
+
+      <p className="text-lg mb-3">
+        Try writing your own method and calling it! You can pass your name into the method and print a message.
+      </p>
+
+      <button
+        onClick={() => setShowHint(!showHint)}
+        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
+      >
+        {showHint ? 'Hide Example' : 'Show Example'}
+      </button>
+
+      {showHint && (
+        <pre className="bg-gray-100 p-3 rounded mb-3">
+{`public class Main {
+  public static void main(String[] args) {
+    greetUser("Alex");  // calling the method with a name
+  }
+
+  // method definition
+  public static void greetUser(String name) {
+    System.out.println("Hello, " + name + "!");
+  }
+}`}
+        </pre>
+      )}
+
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
+    </div>
+  );
+} else if (lessonId === '7-4') {
+  content = (
+    <div className="p-6">
       <div className="mb-6">
         <p className="font-bold mb-2">1. What is a method parameter?</p>
         <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'A value returned from a method')} /> A value returned from a method</label><br/>
@@ -880,36 +945,6 @@ else if (lessonId === '7-1') {
       <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
     </div>
   );
-} else if (lessonId === '7-4') {
-  content = (
-    <div className="p-6">
-      <div className="mb-6">
-        <p className="font-bold mb-2">1. Which class reads user input?</p>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Input')} /> Input</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Printer')} /> Printer</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Scanner')} /> Scanner</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Output')} /> Output</label><br/>
-        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
-      </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">2. Which method reads a whole line?</p>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'nextLine')} /> nextLine()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'printLine')} /> printLine()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'next')} /> next()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'line')} /> line()</label><br/>
-        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
-      </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">3. What goes in Scanner's parentheses?</p>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System.in</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> System.out</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> Output</label><br/>
-        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
-      </div>
-      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"> Submit Quiz</button>
-    </div>
-  );
 }
 
 
@@ -918,36 +953,64 @@ else if (lessonId === '7-1') {
  else if (lessonId === '8-1') {
   content = (
     <div className="p-6">
+      {/* Question 1 */}
       <div className="mb-6">
-        <p className="font-bold mb-2">1. Which keyword prints output?</p>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'System.out.println')} /> System.out.println</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Scanner')} /> Scanner</label>
+        <p className="font-bold mb-2">1. What is the correct syntax for a basic if statement in Java?</p>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'if (condition) { }')} /> if (condition) {'{ }'}</label><br />
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'if condition then')} /> if condition then</label><br />
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'if: condition =>')} /> if: condition =&gt;</label>
         {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
       </div>
+
+      {/* Question 2 */}
       <div className="mb-6">
-        <p className="font-bold mb-2">2. Which class reads input?</p>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Scanner')} /> Scanner</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'System')} /> System</label>
+        <p className="font-bold mb-2">2. Which loop will always run at least once?</p>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'while')} /> while</label><br />
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'for')} /> for</label><br />
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'do-while')} /> do-while</label>
         {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
       </div>
+
+      {/* Question 3 */}
       <div className="mb-6">
-        <p className="font-bold mb-2">3. What is fixing code called?</p>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'Debugging')} /> Debugging</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'Designing')} /> Designing</label>
+        <p className="font-bold mb-2">3. What is a method used for in Java?</p>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'To store user input')} /> To store user input</label><br />
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'To repeat code automatically')} /> To repeat code automatically</label><br />
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'To organize and reuse code')} /> To organize and reuse code</label>
         {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
       </div>
-      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
+
+      {/* Question 4 */}
+      <div className="mb-6">
+        <p className="font-bold mb-2">4. What does the else if keyword do?</p>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Ends the program')} /> Ends the program</label><br />
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Repeats the if block')} /> Repeats the if block</label><br />
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Checks another condition if the first was false')} /> Checks another condition if the first was false</label>
+        {quizFeedback.q4 && <p className="text-sm mt-1">{quizFeedback.q4}</p>}
+      </div>
+
+      <button
+        onClick={submitQuiz}
+        className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"
+      >
+        Submit Quiz
+      </button>
     </div>
   );
 } else if (lessonId === '8-2') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-3">
-        <strong>Final mini project:</strong> Build an age calculator!
+        <strong>Final mini project:</strong> Build a number guessing game!
       </p>
 
       <p className="text-lg mb-3">
-        Ask the user for their birth year using <code>Scanner</code>, then calculate their age and print it. Remeber to enter the input in the "STDIN Input" field and execute your code!
+        The computer will randomly choose a number between 1 and 10. 
+        Use a loop to keep asking until they guess correctly or run out of 5 attempts. 
+      </p>
+
+      <p className="text-lg mb-3">
+        Enter your 5 inputs in the "STDIN Input" field with each number on a new line, and use <code>Scanner</code> for input.
       </p>
 
       <pre className="bg-gray-100 p-3 rounded mb-3">
@@ -969,7 +1032,7 @@ public class Main {
         </button>
         {showHint1 && (
           <p className="bg-gray-100 p-3 rounded mt-2">
-            <strong>Hint 1:</strong> Start by importing <code>Scanner</code> at the top of your file. Inside <code>main</code>, create a <code>Scanner</code> object.
+            <strong>Hint 1:</strong> Use <code>(int)(Math.random() * 10) + 1</code> to generate a random number between 1 and 10.
           </p>
         )}
       </div>
@@ -983,7 +1046,7 @@ public class Main {
         </button>
         {showHint2 && (
           <p className="bg-gray-100 p-3 rounded mt-2">
-            <strong>Hint 2:</strong> Use <code>nextInt()</code> to read the birth year from the user’s input.
+            <strong>Hint 2:</strong> Use a <code>while</code> loop that runs until the user guesses the number or reaches 5 guesses.
           </p>
         )}
       </div>
@@ -997,7 +1060,7 @@ public class Main {
         </button>
         {showHint3 && (
           <p className="bg-gray-100 p-3 rounded mt-2">
-            <strong>Hint 3:</strong> To find the age, subtract the birth year from the current year (for example, use <code>2025</code>).
+            <strong>Hint 3:</strong> Inside the loop, compare the guess to the secret number and give feedback if it’s wrong.
           </p>
         )}
       </div>
@@ -1016,10 +1079,26 @@ public class Main {
 public class Main {
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
-    System.out.print("Enter your birth year: ");
-    int birthYear = input.nextInt();
-    int age = 2025 - birthYear;
-    System.out.println("You are " + age + " years old.");
+    int secret = (int)(Math.random() * 10) + 1;
+    int guess = 0;
+    int attempts = 0;
+    int maxAttempts = 5;
+
+    while (guess != secret && attempts < maxAttempts) {
+      System.out.print("Guess a number between 1 and 10: ");
+      guess = input.nextInt();
+      attempts++;
+
+      if (guess != secret && attempts < maxAttempts) {
+        System.out.println("Wrong! Try again.");
+      }
+    }
+
+    if (guess == secret) {
+      System.out.println("Correct! The number was " + secret + ".");
+    } else {
+      System.out.println("Out of attempts! The number was " + secret + ".");
+    }
   }
 }`}
           </pre>
@@ -1027,10 +1106,11 @@ public class Main {
       </div>
 
       <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
-  </div>
+    </div>
   );
 }
+
+
 
   return (
     <div className="p-[80px] bg-champagne font-quicksand py-[50px]">
