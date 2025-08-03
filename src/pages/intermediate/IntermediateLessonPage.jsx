@@ -52,10 +52,9 @@ export default function IntermediateLessonPage() {
 
   const submitQuiz = () => {
     const answerKey = {
-      '1-4': { q1: 'Games', q2: 'System.out.println', q3: ';'},
-      '2-6': { q1: 'String', q2: 'true/false', q3: '+' },
-      '3-3': { q1: 'Scanner', q2: 'nextLine', q3: 'System.in' },
-      '4-2': { q1: 'System.out.println', q2: 'Scanner', q3: 'Debugging' }
+      '9-6': { q1: 'int[] numbers = new int[5];', q2: 'scores[2]', q3: 'for loop', q4: 'The number of items in the array'},
+      '10-3': { q1: 'String', q2: 'true/false', q3: '+' },
+      '11-1': { q1: 'Scanner', q2: 'nextLine', q3: 'System.in' }
     }[lessonId] || {};
 
     const feedback = {};
@@ -89,53 +88,171 @@ export default function IntermediateLessonPage() {
 
   /** === UNIT 9 === **/
   if (lessonId === '9-1') {
-    content = (
+  content = (
     <div className="p-6">
-      <p className="text-lg mb-3 text-blue-900">
-        🎉 <strong>Welcome to Java!</strong> Java is one of the most widely used programming languages in the world. It was first released by Sun Microsystems in 1995, thanks to a brilliant engineer named <span className="text-green-700 font-semibold">James Gosling</span>. His team wanted to solve a big challenge: how can we write one program that runs on any computer, whether it’s a tiny phone or a giant server?
+      <p className="text-lg mb-3">
+        Imagine you want to store your top 5 favorite numbers. Instead of making 5 separate variables (number1, number2, etc.), you use an array to keep them all together. It’s like having a row of mailboxes, each with its own number!
       </p>
       <p className="text-lg mb-3">
-        This led to Java’s famous slogan: <span className="text-red-700 font-bold">“Write Once, Run Anywhere.”</span> That means you write your code just once, and it will work on Windows, Mac, Linux — almost anything with a screen! 📱💻🌍 This is why Java became so popular for building big, important systems like bank software, mobile apps, websites, and even games like <span className="text-green-700 font-semibold">Minecraft</span>.
+        In Java, an array holds multiple values of the same type, like all <code>int</code>s or all <code>String</code>s. You can then use an index (starting at 0) to get or change each item.
       </p>
+      <p className="text-lg mb-3 font-bold">Here’s how you create an int array for 5 numbers:</p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`int[] favoriteNumbers = new int[5];`}
+      </pre>
+
       <p className="text-lg mb-3">
-        Today, millions of developers use Java every day. Companies trust it because it’s stable, safe, and constantly improved by a huge community. By learning Java, you’re opening doors to create apps, games, and tools that people can use around the world. 🌟 You’ll soon see how powerful it is to write code that anyone can run anywhere!
+        This line says: "Make a new array named <code>favoriteNumbers</code> that can hold 5 integers."
       </p>
-      <img className="w-64 my-4" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmJyYjdtaTNyZHRlMWcxN2V4MHNkNHZ5NGV6am1oYXNobjlneXp3bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ws6T5PN7wHv3cY8xy8/giphy.gif" alt="Java logo spinning" />
+
+      <p className="text-lg mb-3 font-bold">To put values in, you can do:</p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`favoriteNumbers[0] = 7;  // first box
+favoriteNumbers[1] = 42; // second box`}
+      </pre>
+
+      <p className="text-lg mb-3">
+        And to get the value from the third box, use:
+      </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`int thirdNumber = favoriteNumbers[2];`}
+      </pre>
+
+      <p className="text-lg mb-3">
+        Remember, arrays start counting at 0, so <code>favoriteNumbers[0]</code> is the first item.
+      </p>
+
+      <p className="text-lg mb-3 font-bold">Here’s a quick example putting it all together:</p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`public class Main {
+  public static void main(String[] args) {
+    int[] favoriteNumbers = new int[5];
+    favoriteNumbers[0] = 7;
+    favoriteNumbers[1] = 42;
+    favoriteNumbers[2] = 3;
+    favoriteNumbers[3] = 12;
+    favoriteNumbers[4] = 99;
+
+    System.out.println("My favorite number is " + favoriteNumbers[1]);
+  }
+}`}
+      </pre>
+
+      <p className="text-lg mb-3">
+        When you run this, it prints: <code>My favorite number is 42</code>
+      </p>
+
       <p className="text-lg">
-        Ready to learn? Let’s go step by step — by the end, you’ll be a Java explorer! 🚀
+        Arrays help you organize many pieces of related data efficiently. Next, you’ll learn how to loop through arrays to process each item easily!
       </p>
     </div>
   );
   } else if (lessonId === '9-2') {
-    content = (
+  content = (
     <div className="p-6">
-      <p className="text-lg mb-3 text-blue-900">
-        🛠️ <strong>How to Start Coding in Java</strong><br/>
-        To write Java programs, you need two main tools: a <span className="text-green-700 font-semibold">JDK</span> and an <span className="text-purple-700 font-semibold">IDE</span>. The <strong>JDK (Java Development Kit)</strong> is what makes your computer understand Java. It helps you turn your code into instructions that the computer can run.
-      </p>
+
       <p className="text-lg mb-3">
-        Next, you need an <strong>IDE (Integrated Development Environment)</strong>. Think of this as your special notebook and toolbox for coding. An IDE makes writing code easier by adding colors, suggestions, and ways to run your programs with just one click! Popular IDEs are <span className="text-purple-700">IntelliJ IDEA</span>, <span className="text-purple-700">Eclipse</span>, or <span className="text-purple-700">VS Code</span> with a Java plugin.
+        To declare an array, tell Java the type and how many items it will hold:
       </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`int[] numbers = new int[3]; // creates an int array with 3 spots`}
+      </pre>
+
+      
       <p className="text-lg mb-3">
-        📝 <strong>How to set it up:</strong> First, download the JDK for free from Oracle’s website. Then, pick an IDE and install it on your computer. Once both are ready, you can start writing real Java code! ✨ Learning how to install these tools may seem tricky at first, but it’s worth it. Every developer does it — and once you’re set up, the magic begins!
+        To initialize values, use the index (starting at 0):
       </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`numbers[1] = "20";`}
+      </pre>
+
       <p className="text-lg mb-3">
-        <strong>You won't need to install an IDE to use this site, but it can still be helpful going forward!</strong>
+        You can also create and fill it right away:
       </p>
-      <img className="w-64 my-4" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3lvOGFkeDNvZHFmcGJocTNlb2hiaXY2emZoNGhlNnc2dGN5N3BkYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HO2cuakPoSngvitf0M/giphy.gif" alt="Cat typing code" />
-      <p className="text-lg">
-        📚 <em>Tip:</em> If you ever feel stuck, remember: Google and YouTube tutorials are your friends. Many people have learned Java before you — you’re never alone!
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`String[] fruits = {"apple", "banana", "cherry"};`}
+      </pre>
+
+
+      <p className="text-lg mb-3 font-bold">
+        Practice: Declare an int array of size 3, set the second item to 10, and print it!
       </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`public class Main {
+  public static void main(String[] args) {
+    // Write your code here
+  }
+}`}
+      </pre>
+
+      <button
+        onClick={() => setShowHint(!showHint)}
+        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
+      >
+        {showHint ? 'Hide Example' : 'Show Example'}
+      </button>
+
+      {showHint && (
+        <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    int[] numbers = new int[3];
+    numbers[2] = 10;
+    System.out.println(numbers[2]);
+  }
+}`}
+        </pre>
+      )}
+
+
+      <div
+        data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
+        style={{
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          overflow: 'hidden',
+        }}
+      ></div>
     </div>
   );
   } else if (lessonId === '9-3') {
-
   content = (
     <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s write your first Java program!</strong>  
-        In Java, you write instructions inside a <span className="text-green-700">class</span>. The program starts running at the <span className="text-purple-700">main</span> method.  
-        To show a message on the screen, you use <code className="bg-gray-200 px-1">System.out.println()</code>.
+      <p className="text-lg mb-3">
+        <strong>Accessing Array Elements</strong>
+        <ul className="list-disc list-inside mt-1">
+          <li><code>names[0]</code> gets the first element → "Alice"</li>
+          <li><code>System.out.println(nums[2]);</code> prints the third value</li>
+        </ul>
+      </p>
+
+      <p className="text-lg mb-3">
+        <strong>Changing Values</strong>
+        <ul className="list-disc list-inside mt-1">
+          <li><code>names[1] = "Ben";</code> replaces "Bob" with "Ben"</li>
+          <li>Use <code>=</code> to overwrite a specific index</li>
+        </ul>
+      </p>
+
+      <p className="text-lg mb-3">
+        <strong>Array Length</strong><br/>
+        Use <code>array.length</code> to get the number of elements. Note: no parentheses!
+        <br/><code>System.out.println(names.length);</code> → 3
+      </p>
+
+      <p className="text-lg mb-3">
+        <strong>Calling or Printing</strong>
+        <ul className="list-disc list-inside mt-1">
+          <li><code>System.out.println(names[2]);</code> → prints one element</li>
+        </ul>
       </p>
 
       <button
@@ -149,22 +266,26 @@ export default function IntermediateLessonPage() {
         <pre className="bg-gray-100 p-3 rounded mb-4">
 {`public class Main {
   public static void main(String[] args) {
-    System.out.println("Hello, World!");
+    String[] colors = {"Red", "Green", "Blue"};
+    
+    System.out.println("Total colors: " + colors.length); // .length tells us how many elements
   }
 }`}
         </pre>
       )}
 
       <p className="text-lg mb-3">
-        Try it below! Paste the starting code into the code editor, change the text inside the quotes and execute it. Dont forget the <code>;</code> at the end!
+        <strong>Try It Yourself:</strong><br/>
+        Using the starter code, declare and initialize an array and print the length:
       </p>
+
       <pre className="bg-gray-100 p-3 rounded mb-4">
 {`public class Main {
   public static void main(String[] args) {
-    //Enter code here!
+    // Declare and modify an array here
   }
 }`}
-        </pre>
+      </pre>
 
       <div
         data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
@@ -176,43 +297,55 @@ export default function IntermediateLessonPage() {
       ></div>
     </div>
   );
-}else if (lessonId === '9-4') {
+} else if (lessonId === '9-4') {
 
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s write your first Java program!</strong>  
-        In Java, you write instructions inside a <span className="text-green-700">class</span>. The program starts running at the <span className="text-purple-700">main</span> method.  
-        To show a message on the screen, you use <code className="bg-gray-200 px-1">System.out.println()</code>.
+        <strong>Looping Through Arrays in Java</strong><br />
+        Arrays let you store multiple values of the same type in one variable. You can use loops to go through each item in the array and perform actions on them.
+      </p>
+
+      <p className="mb-3">
+        The <code className="bg-gray-200 px-1">for</code> loop is most common for arrays. It lets you repeat actions for each index. Java also offers a simpler "enhanced for loop" that goes through each element directly.
       </p>
 
       <button
         onClick={() => setShowHint(!showHint)}
         className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
       >
-        {showHint ? 'Hide Example' : 'Show Example'}
+        {showHint ? 'Hide Examples' : 'Show Examples'}
       </button>
 
       {showHint && (
-        <pre className="bg-gray-100 p-3 rounded mb-4">
-{`public class Main {
-  public static void main(String[] args) {
-    System.out.println("Hello, World!");
-  }
+        <pre className="bg-gray-100 p-3 rounded mb-4 whitespace-pre-wrap">
+{`// Traditional for loop:
+String[] fruits = {"Apple", "Banana", "Cherry"};
+for (int i = 0; i < fruits.length; i++) {
+  System.out.println(fruits[i]);
+}
+
+// Enhanced for loop (for-each):
+for (String fruit : fruits) {
+  System.out.println(fruit);
 }`}
         </pre>
       )}
 
       <p className="text-lg mb-3">
-        Try it below! Paste the starting code into the code editor, change the text inside the quotes and execute it. Dont forget the <code>;</code> at the end!
+        Try it below! Fill in the loop to print out each number in the array. Change or add values if you like!
       </p>
+
       <pre className="bg-gray-100 p-3 rounded mb-4">
 {`public class Main {
   public static void main(String[] args) {
-    //Enter code here!
+    int[] numbers = {3, 7, 1, 9, 4};
+
+    // Loop through and print each number
+    // Your code here
   }
 }`}
-        </pre>
+      </pre>
 
       <div
         data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
@@ -224,43 +357,131 @@ export default function IntermediateLessonPage() {
       ></div>
     </div>
   );
-}else if (lessonId === '9-5') {
-
+} else if (lessonId === '9-5') {
   content = (
     <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s write your first Java program!</strong>  
-        In Java, you write instructions inside a <span className="text-green-700">class</span>. The program starts running at the <span className="text-purple-700">main</span> method.  
-        To show a message on the screen, you use <code className="bg-gray-200 px-1">System.out.println()</code>.
-      </p>
+      <h2 className="text-2xl font-bold text-black-800 mb-4">Common Array Problems in Java</h2>
 
-      <button
-        onClick={() => setShowHint(!showHint)}
-        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
-      >
-        {showHint ? 'Hide Example' : 'Show Example'}
-      </button>
-
-      {showHint && (
-        <pre className="bg-gray-100 p-3 rounded mb-4">
+      {/* Max Value */}
+      <h3 className="text-xl font-semibold text-black-700 mt-6 mb-2">1. Find the Maximum Value</h3>
+      <pre className="bg-gray-100 p-3 rounded mb-2">
 {`public class Main {
   public static void main(String[] args) {
-    System.out.println("Hello, World!");
-  }
-}`}
-        </pre>
-      )}
+    int[] numbers = {4, 9, 2, 17, 6};
+    int max = numbers[0];
 
-      <p className="text-lg mb-3">
-        Try it below! Paste the starting code into the code editor, change the text inside the quotes and execute it. Dont forget the <code>;</code> at the end!
+    for (int i = 1; i < numbers.length; i++) {
+      if (numbers[i] > max) {
+        max = numbers[i];
+      }
+    }
+
+    System.out.println("Max value: " + max);
+  }
+}
+
+`}
+      </pre>
+      <p className="mb-4">
+         This code starts by assuming the first value is the max. It loops through the rest of the array and updates <code>max</code> whenever it finds a larger number.
       </p>
-      <pre className="bg-gray-100 p-3 rounded mb-4">
+
+      {/* Count Occurrences */}
+      <h3 className="text-xl font-semibold text-black-700 mt-6 mb-2"> 2. Count Occurrences of a Value</h3>
+      <pre className="bg-gray-100 p-3 rounded mb-2">
 {`public class Main {
   public static void main(String[] args) {
-    //Enter code here!
+    int[] scores = {1, 3, 4, 3, 5, 3};
+    int count = 0;
+
+    for (int score : scores) {
+      if (score == 3) {
+        count++;
+      }
+    }
+
+    System.out.println("Number of 3s: " + count);
   }
-}`}
-        </pre>
+}
+
+`}
+      </pre>
+      <p className="mb-4">
+        This code uses a <code>for-each</code> loop to go through the array and count how many times the number 3 appears.
+      </p>
+
+      {/* Sum All Elements */}
+      <h3 className="text-xl font-semibold text-black-700 mt-6 mb-2">3. Sum All Elements</h3>
+      <pre className="bg-gray-100 p-3 rounded mb-2">
+{`public class Main {
+  public static void main(String[] args) {
+    int[] values = {2, 4, 6, 8};
+    int sum = 0;
+
+    for (int value : values) {
+      sum += value;
+    }
+
+    System.out.println("Sum: " + sum);
+  }
+}
+
+`}
+      </pre>
+      <p className="mb-4">
+        This loop adds up every number in the array using <code>sum += value</code>. A common pattern when processing numbers.
+      </p>
+
+      {/* Average */}
+      <h3 className="text-xl font-semibold text-black-700 mt-6 mb-2">4. Calculate Average</h3>
+      <pre className="bg-gray-100 p-3 rounded mb-2">
+{`public class Main {
+  public static void main(String[] args) {
+    int[] grades = {90, 85, 80};
+    int total = 0;
+
+    for (int grade : grades) {
+      total += grade;
+    }
+
+    double average = (double) total / grades.length;
+    System.out.println("Average: " + average);
+  }
+}
+
+`}
+      </pre>
+      <p className="mb-4">
+        Sum all values first, then divide by <code>grades.length</code>. Use <code>(double)</code> to make sure the division isn’t rounded.
+      </p>
+
+      {/* Search for a Value */}
+      <h3 className="text-xl font-semibold text-black-700 mt-6 mb-2">5. Check if a Value Exists</h3>
+      <pre className="bg-gray-100 p-3 rounded mb-2">
+{`public class Main {
+  public static void main(String[] args) {
+    int[] data = {7, 12, 19, 23};
+    int target = 19;
+    boolean found = false;
+
+    for (int num : data) {
+      if (num == target) {
+        found = true;
+        break;
+      }
+    }
+    System.out.println("Found? " + found);
+  }
+}
+`}
+      </pre>
+      <p className="mb-4">
+        This loop checks if <code>target</code> is in the array. If found, it sets <code>found</code> to true and exits early using <code>break</code>.
+      </p>
+
+      <p className="mb-4 text-xl">
+        Try it yourself! Copy the examples into the code editor below and examine the outputs.
+      </p>
 
       <div
         data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
@@ -270,43 +491,54 @@ export default function IntermediateLessonPage() {
           overflow: 'hidden',
         }}
       ></div>
+
     </div>
   );
-}else if (lessonId === '9-6') {
-    content = (
-  <div className="p-6">
-    <div className="mb-6">
-      <p className="font-bold mb-2">1. What is Java commonly used for?</p>
-      <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Cooking')} /> Cooking</label><br/>
-      <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Games')} /> Games</label><br/>
-      <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Gardening')} /> Gardening</label><br/>
-      <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Painting')} /> Painting</label>
-      {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
+}
+ else if (lessonId === '9-6') {
+  content = (
+    <div className="p-6">
+      <div className="mb-6">
+        <p className="font-bold mb-2">1. What is the correct way to declare an array of integers in Java?</p>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'int numbers = [5];')} /> int numbers = [5];</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'array int numbers = 5;')} /> array int numbers = 5;</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'int[] numbers = new int[5];')} /> int[] numbers = new int[5];</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'int numbers[] = 5;')} /> int numbers[] = 5;</label><br/>
+        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">2. How do you access the third element of an array called <code>scores</code>?</p>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'scores[2]')} /> scores[2]</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'scores(3)')} /> scores(3)</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'scores{2}')} /> scores{2}</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'scores[3]')} /> scores[3]</label>
+        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">3. Which loop is commonly used to go through every element in an array?</p>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'if statement')} /> if statement</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'for loop')} /> for loop</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'switch case')} /> switch case</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'do-while loop')} /> do-while loop</label><br/>
+        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">4. What does <code>array.length</code> return?</p>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'The last item in the array')} /> The last item in the array</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Always 10')} /> Always 10</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'The index of the last element')} /> The index of the last element</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'The number of items in the array')} /> The number of items in the array</label><br/>
+        {quizFeedback.q4 && <p className="text-sm mt-1">{quizFeedback.q4}</p>}
+      </div>
+
+      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
     </div>
+  );
+}
 
-    <div className="mb-6">
-      <p className="font-bold mb-2">2. Which shows text on the screen?</p>
-      <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'System.out.println')} /> System.out.println</label><br/>
-      <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'System.read')} /> System.read</label><br/>
-      <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Scanner.in')} /> Scanner.in</label><br/>
-      <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Input.show')} /> Input.show</label>
-      {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
-    </div>
-
-    <div className="mb-6">
-      <p className="font-bold mb-2">3. What ends a statement in Java?</p>
-      <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '.')} /> . (dot)</label><br/>
-      <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', ',')} /> , (comma)</label><br/>
-      <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', ';')} /> ; (semicolon)</label><br/>
-      <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', ':')} /> : (colon)</label>
-      {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
-    </div>
-
-    <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
-  </div>
-);
-
-  }
 
 /** === UNIT 10 === **/
 
