@@ -52,9 +52,9 @@ export default function BeginnerLessonPage() {
 
   const submitQuiz = () => {
     const answerKey = {
-      '1-4': { q1: 'Games', q2: 'System.out.println', q3: ';'},
-      '2-6': { q1: 'String', q2: 'true/false', q3: '+' },
-      '3-3': { q1: 'Scanner', q2: 'nextLine', q3: 'System.in' },
+      '5-4': { q1: 'Executes code only if a condition is true', q2: 'Repeats code foreverChecks a new condition if the first one is false', q3: 'The else block will run', q4: 'if (x > 5) { System.out.println("Hi"); }'},
+      '6-6': { q1: 'for', q2: '012', q3: 'do-while' },
+      '7-3': { q1: 'A value passed into a method', q2: 'The type of value it returns', q3: 'void hello(String name)', q4: 'greet();' },
       '4-2': { q1: 'System.out.println', q2: 'Scanner', q3: 'Debugging' }
     }[lessonId] || {};
 
@@ -89,53 +89,101 @@ export default function BeginnerLessonPage() {
 
   /** === UNIT 5 === **/
   if (lessonId === '5-1') {
-    content = (
+  content = (
     <div className="p-6">
-      <p className="text-lg mb-3 text-blue-900">
-        🎉 <strong>Welcome to Java!</strong> Java is one of the most widely used programming languages in the world. It was first released by Sun Microsystems in 1995, thanks to a brilliant engineer named <span className="text-green-700 font-semibold">James Gosling</span>. His team wanted to solve a big challenge: how can we write one program that runs on any computer, whether it’s a tiny phone or a giant server?
+      <p className="text-lg mb-3 text-purple-900">
+        <strong>Welcome to Conditionals!</strong> Imagine you’re playing a game. If your score is over 100, you level up. If you touch lava, you lose a life. That’s what conditionals do in coding — they let your program make decisions based on what’s happening! 
       </p>
-      <p className="text-lg mb-3">
-        This led to Java’s famous slogan: <span className="text-red-700 font-bold">“Write Once, Run Anywhere.”</span> That means you write your code just once, and it will work on Windows, Mac, Linux — almost anything with a screen! 📱💻🌍 This is why Java became so popular for building big, important systems like bank software, mobile apps, websites, and even games like <span className="text-green-700 font-semibold">Minecraft</span>.
-      </p>
-      <p className="text-lg mb-3">
-        Today, millions of developers use Java every day. Companies trust it because it’s stable, safe, and constantly improved by a huge community. By learning Java, you’re opening doors to create apps, games, and tools that people can use around the world. 🌟 You’ll soon see how powerful it is to write code that anyone can run anywhere!
-      </p>
-      <img className="w-64 my-4" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmJyYjdtaTNyZHRlMWcxN2V4MHNkNHZ5NGV6am1oYXNobjlneXp3bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ws6T5PN7wHv3cY8xy8/giphy.gif" alt="Java logo spinning" />
-      <p className="text-lg">
-        Ready to learn? Let’s go step by step — by the end, you’ll be a Java explorer! 🚀
-      </p>
-    </div>
-  );
-  } else if (lessonId === '5-2') {
-    content = (
-    <div className="p-6">
-      <p className="text-lg mb-3 text-blue-900">
-        🛠️ <strong>How to Start Coding in Java</strong><br/>
-        To write Java programs, you need two main tools: a <span className="text-green-700 font-semibold">JDK</span> and an <span className="text-purple-700 font-semibold">IDE</span>. The <strong>JDK (Java Development Kit)</strong> is what makes your computer understand Java. It helps you turn your code into instructions that the computer can run.
-      </p>
-      <p className="text-lg mb-3">
-        Next, you need an <strong>IDE (Integrated Development Environment)</strong>. Think of this as your special notebook and toolbox for coding. An IDE makes writing code easier by adding colors, suggestions, and ways to run your programs with just one click! Popular IDEs are <span className="text-purple-700">IntelliJ IDEA</span>, <span className="text-purple-700">Eclipse</span>, or <span className="text-purple-700">VS Code</span> with a Java plugin.
-      </p>
-      <p className="text-lg mb-3">
-        📝 <strong>How to set it up:</strong> First, download the JDK for free from Oracle’s website. Then, pick an IDE and install it on your computer. Once both are ready, you can start writing real Java code! ✨ Learning how to install these tools may seem tricky at first, but it’s worth it. Every developer does it — and once you’re set up, the magic begins!
-      </p>
-      <p className="text-lg mb-3">
-        <strong>You won't need to install an IDE to use this site, but it can still be helpful going forward!</strong>
-      </p>
-      <img className="w-64 my-4" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExb3lvOGFkeDNvZHFmcGJocTNlb2hiaXY2emZoNGhlNnc2dGN5N3BkYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/HO2cuakPoSngvitf0M/giphy.gif" alt="Cat typing code" />
-      <p className="text-lg">
-        📚 <em>Tip:</em> If you ever feel stuck, remember: Google and YouTube tutorials are your friends. Many people have learned Java before you — you’re never alone!
-      </p>
-    </div>
-  );
-  } else if (lessonId === '5-3') {
 
+      <p className="text-lg mb-3 text-blue-900">
+        In Java, the most basic type of conditional is an <code className="bg-blue-100 px-1 rounded text-black font-mono">if</code> statement. Here's the idea:
+      </p>
+
+      <div className="bg-yellow-100 p-4 rounded-lg text-black mb-4 font-mono text-base shadow-md">
+        if (somethingIsTrue) &#123;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;// do this!<br />
+        &#125;
+      </div>
+
+      <p className="text-lg mb-3">
+        Let’s break that down. The code inside the curly braces <code className="font-mono">&#123; &#125;</code> will only run if the thing inside the parentheses is true. 
+      </p>
+
+      <p className="text-lg mb-3 text-green-800">
+        <strong>Example time!</strong> Let’s say we want to check the weather:
+      </p>
+
+      <div className="bg-green-100 p-4 rounded-lg text-black mb-4 font-mono text-base shadow-md">
+        boolean isRaining = true;<br />
+        if (isRaining) &#123;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(" Don't forget your umbrella!");<br />
+        &#125;
+      </div>
+
+      <p className="text-lg mb-3">
+        Since <code className="font-mono">isRaining</code> is true, Java will run the code inside and print the reminder. If it were false, it would skip that part. No umbrella needed! 
+      </p>
+
+      <p className="text-lg mb-3 text-red-800">
+        What if we want to do something else when it’s not raining? That’s where <code className="font-mono">else</code> comes in!
+      </p>
+
+      <div className="bg-pink-100 p-4 rounded-lg text-black mb-4 font-mono text-base shadow-md">
+        if (isRaining) &#123;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Don't forget your umbrella!");<br />
+        &#125; else &#123;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Sunglasses time!");<br />
+        &#125;
+      </div>
+
+      <p className="text-lg mb-3">
+        Java will choose one path or the other — like a choose-your-own-adventure book! 
+      </p>
+
+      <p className="text-lg mb-3 text-blue-800">
+        You can also stack more choices using <code className="font-mono">else if</code>. For example:
+      </p>
+
+      <div className="bg-indigo-100 p-4 rounded-lg text-black mb-4 font-mono text-base shadow-md">
+        int score = 85;<br />
+        if (score &gt;= 90) &#123;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("You got an A!");<br />
+        &#125; else if (score &gt;= 80) &#123;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("You got a B!");<br />
+        &#125; else &#123;<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Keep trying!");<br />
+        &#125;
+      </div>
+
+      <p className="text-lg mb-3">
+        This lets your program respond to <strong>many different situations</strong>! Think of it like your brain making decisions all day:
+        <ul className="list-disc ml-6 mt-2 text-base text-purple-900">
+          <li>If it’s cold → wear a jacket </li>
+          <li>Else if it’s hot → wear shorts </li>
+          <li>Else → hoodie time! </li>
+        </ul>
+      </p>
+
+      <p className="text-lg">
+         <strong>Conditionals are like traffic lights for your code.</strong> They help control the flow and decide which direction to take based on what’s going on.
+      </p>
+
+      <p className="text-lg mt-4">
+        Next, we’ll start combining conditionals with <strong>loops</strong>, so your programs can start doing even more smart things!
+      </p>
+    </div>
+  );
+} else if (lessonId === '5-2') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s write your first Java program!</strong>  
-        In Java, you write instructions inside a <span className="text-green-700">class</span>. The program starts running at the <span className="text-purple-700">main</span> method.  
-        To show a message on the screen, you use <code className="bg-gray-200 px-1">System.out.println()</code>.
+        <strong>Using If Statements in Java</strong><br />
+        Sometimes in coding, you only want something to happen *if* a certain condition is true. That’s where <code className="bg-gray-200 px-1">if</code> statements come in!  
+        They let you tell the computer: “Only do this when a specific thing is true.”
+      </p>
+
+      <p className="text-lg mb-3">
+        You write an <code className="bg-gray-200 px-1">if</code> statement by checking a condition inside parentheses <code>()</code>. If that condition is true, the code inside the curly braces <code>{`{}`}</code> will run.
       </p>
 
       <button
@@ -149,22 +197,114 @@ export default function BeginnerLessonPage() {
         <pre className="bg-gray-100 p-3 rounded mb-4">
 {`public class Main {
   public static void main(String[] args) {
-    System.out.println("Hello, World!");
+    int age = 18;
+    if (age >= 13) {
+      System.out.println("You are a teenager or older!");
+    }
   }
 }`}
         </pre>
       )}
 
       <p className="text-lg mb-3">
-        Try it below! Paste the starting code into the code editor, change the text inside the quotes and execute it. Dont forget the <code>;</code> at the end!
+        Try it below! Paste the code into the editor, then try changing the value of <code>age</code> and see how the output changes.
       </p>
+
       <pre className="bg-gray-100 p-3 rounded mb-4">
 {`public class Main {
   public static void main(String[] args) {
-    //Enter code here!
+    int age = 10;
+    // Write an if statement that says "You're a kid!" if age is less than 13
+  }
+}`}
+      </pre>
+
+      <div
+        data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
+        style={{
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          overflow: 'hidden',
+        }}
+      ></div>
+    </div>
+  );
+} else if (lessonId === '5-3') {
+  content = (
+    <div className="p-6">
+      <p className="text-lg mb-4 text-blue-900">
+        <strong>Understanding else and else if in Java</strong><br />
+        In Java, <code className="bg-gray-200 px-1">if</code> statements allow you to run a block of code only when a specific condition is true. 
+        But what if that condition is false? That’s where <code className="bg-gray-200 px-1">else</code> and <code className="bg-gray-200 px-1">else if</code> come in!
+      </p>
+
+      <p className="text-lg mb-3">
+        <strong>🔸 else if:</strong> This gives you a way to check more than one condition. Java will check each <code>else if</code> in order, and it will run the first one that’s true. If none of the <code>if</code> or <code>else if</code> blocks are true, then it moves to the <code>else</code> (if you have one).
+      </p>
+
+      <p className="text-lg mb-3">
+        <strong>🔹 else:</strong> This is used when none of the <code>if</code> or <code>else if</code> conditions are true. It's a backup plan—Java runs the <code>else</code> block only when all other conditions fail.
+      </p>
+
+      
+
+      <p className="text-lg mb-3">
+        <strong>When to use them:</strong> Use <code>if</code> when checking the first condition, <code>else if</code> when you have other possible cases to check, and <code>else</code> to handle everything else.
+      </p>
+
+      <p className="text-lg mb-3">
+        In this example, we use <code>if</code>, <code>else if</code>, and <code>else</code> to determine a grade based on a score:
+      </p>
+
+      <button
+        onClick={() => setShowHint(!showHint)}
+        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
+      >
+        {showHint ? 'Hide Example' : 'Show Example'}
+      </button>
+
+      {showHint && (
+        <div>
+        <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    int score = 85;
+
+    if (score >= 90) {
+      System.out.println("You got an A!");
+    } else if (score >= 80) {
+      System.out.println("You got a B!");
+    } else {
+      System.out.println("Keep trying!");
+    }
   }
 }`}
         </pre>
+        <p className="text-lg mb-3">
+        <strong>How this works:</strong><br />
+        ➤ If <code>score</code> is 90 or higher, it prints "You got an A!" <br />
+        ➤ If <code>score</code> is 80 or higher but less than 90, it prints "You got a B!" <br />
+        ➤ If <code>score</code> is less than 80, it prints "Keep trying!"<br />
+      </p>
+
+        </div>
+        
+      )}
+
+      
+
+      <p className="text-lg mb-3">
+        Now it’s your turn! Paste the code below into the editor and change the value of <code>score</code> to see how the output changes.
+      </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    int score = 70;
+    // Write if, else if, and else statements below to check for A, B, or lower grades.
+  }
+}`}
+      </pre>
 
       <div
         data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
@@ -177,40 +317,51 @@ export default function BeginnerLessonPage() {
     </div>
   );
 } else if (lessonId === '5-4') {
-    content = (
-  <div className="p-6">
-    <div className="mb-6">
-      <p className="font-bold mb-2">1. What is Java commonly used for?</p>
-      <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Cooking')} /> Cooking</label><br/>
-      <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Games')} /> Games</label><br/>
-      <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Gardening')} /> Gardening</label><br/>
-      <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Painting')} /> Painting</label>
-      {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
+  content = (
+    <div className="p-6">
+      <div className="mb-6">
+        <p className="font-bold mb-2">1. What does an <code>if</code> statement do?</p>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Executes code only if a condition is true')} /> Executes code only if a condition is true</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Repeats code forever')} /> Repeats code forever</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Ends the program')} /> Ends the program</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Skips to the next line')} /> Skips to the next line</label>
+        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">2. What is the purpose of an <code>else if</code>?</p>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Ends the program')} /> Ends the program</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Starts a loop')} /> Starts a loop</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Checks a new condition if the first one is false')} /> Checks a new condition if the first one is false</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Always runs after if')} /> Always runs after if</label><br/>
+        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">3. What happens if none of the <code>if</code> or <code>else if</code> conditions are true, but there is an <code>else</code>?</p>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'The program crashes')} /> The program crashes</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'The first if runs anyway')} /> The first if runs anyway</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'Nothing happens')} /> Nothing happens</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'The else block will run')} /> The else block will run</label><br/>
+        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">4. Which of the following is a valid Java conditional?</p>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'if (x > 5) { System.out.println("Hi"); }')} /> if (x &gt; 5) &#123; System.out.println("Hi"); &#125;</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'if x > 5 then print("Hi")')} /> if x &gt; 5 then print("Hi")</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'if x > 5: print("Hi")')} /> if x &gt; 5: print("Hi")</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'print("Hi") if x > 5')} /> print("Hi") if x &gt; 5</label>
+        {quizFeedback.q4 && <p className="text-sm mt-1">{quizFeedback.q4}</p>}
+      </div>
+
+      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+        Submit Quiz
+      </button>
     </div>
+  );
+}
 
-    <div className="mb-6">
-      <p className="font-bold mb-2">2. Which shows text on the screen?</p>
-      <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'System.out.println')} /> System.out.println</label><br/>
-      <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'System.read')} /> System.read</label><br/>
-      <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Scanner.in')} /> Scanner.in</label><br/>
-      <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Input.show')} /> Input.show</label>
-      {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
-    </div>
-
-    <div className="mb-6">
-      <p className="font-bold mb-2">3. What ends a statement in Java?</p>
-      <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '.')} /> . (dot)</label><br/>
-      <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', ',')} /> , (comma)</label><br/>
-      <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', ';')} /> ; (semicolon)</label><br/>
-      <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', ':')} /> : (colon)</label>
-      {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
-    </div>
-
-    <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
-  </div>
-);
-
-  }
 
 /** === UNIT 6 === **/
 
@@ -218,49 +369,70 @@ else if (lessonId === '6-1') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4">
-        In Java, a <strong>variable</strong> is like a labeled jar that holds information.
-        You must tell Java what type of info each jar can hold — these are called <strong>data types</strong>.
+        Imagine you need to print <code>"Hello!"</code> 100 times. Typing the same line 100 times would take forever and be super boring.
+        Instead, you can use a <strong>loop</strong> to repeat the same action multiple times — <em>automatically</em>!
       </p>
-      <p className="text-lg mb-3">
-        For example:
-        <ul className="list-disc ml-6 mb-3">
-          <li><code>int</code>: whole numbers like <code>5</code> or <code>-42</code></li>
-          <li><code>double</code>: decimals like <code>3.14</code> or <code>-0.01</code></li>
-          <li><code>String</code>: text, always in double quotes — <code>"Hello!"</code></li>
-          <li><code>boolean</code>: true or false — <code>true</code>, <code>false</code></li>
-        </ul>
+
+      <p className="text-lg mb-4">
+        A <strong>loop</strong> in Java lets your code run over and over again — either a set number of times or until a condition is no longer true.
+        This makes your code shorter, cleaner, and way more powerful.
       </p>
+
       <p className="text-lg mb-3">
-        Declaring means creating the jar and putting something inside:
+        For example, this loop prints <code>"Hello!"</code> five times:
       </p>
       <pre className="bg-gray-100 p-3 rounded mb-3">
-{`int age = 16;
-double height = 5.8;
-String name = "Sam";
-boolean isStudent = true;`}
+{`for (int i = 1; i <= 5; i++) {
+  System.out.println("Hello!");
+}`}
       </pre>
+
       <p className="text-lg mb-3">
-        Choosing clear variable names helps you and others understand what they store.
+        This code means:
+        <ul className="list-disc ml-6 mb-3">
+          <li><code>int i = 1;</code> → Start with i = 1</li>
+          <li><code>i &lt;= 5;</code> → Keep going while i is 5 or less</li>
+          <li><code>i++;</code> → After each loop, add 1 to i</li>
+        </ul>
       </p>
-      <img className="w-64 my-4" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Funny cat coding" />
+
+      <p className="text-lg mb-4">
+        Loops are useful when:
+        <ul className="list-disc ml-6">
+          <li>You want to repeat something multiple times</li>
+          <li>You want to go through a list of items (like numbers, names, etc.)</li>
+          <li>You want your program to run until a user gives a certain input</li>
+        </ul>
+      </p>
+
+      <p className="text-lg mb-4">
+        Without loops, you'd have to write the same code over and over again.
+        With loops, your program can do so much more — with less effort!
+      </p>
+
+      <img
+        className="w-64 my-4"
+        src="https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif"
+        alt="Looping cat"
+      />
     </div>
   );
 }
-
 else if (lessonId === '6-2') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s practice with</strong> <code>int</code> and <code>double</code>. Below is a starting structure — paste it into the code editor and execute to see your result!
+        <strong>What is a <code>while</code> loop?</strong><br />
+        A <code>while</code> loop repeats a block of code <strong>as long as a condition is true</strong>. It’s useful when you want to repeat something but don’t know ahead of time how many times it should run.
       </p>
 
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    // Declare an int called age
-    // Declare a double called height
-    // Print them both
-  }
+      <p className="text-lg mb-4">
+        Here’s the structure of a <code>while</code> loop:
+      </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`while (condition) {
+  // Code to repeat
 }`}
       </pre>
 
@@ -273,19 +445,33 @@ else if (lessonId === '6-2') {
 
       {showHint && (
         <pre className="bg-gray-100 p-3 rounded mb-4">
-{`public class Main {
-  public static void main(String[] args) {
-    int age = 16;
-    double height = 5.8;
-    System.out.println(age);
-    System.out.println(height);
-  }
+{`int counter = 1;
+while (counter <= 5) {
+  System.out.println(counter);
+  counter++;
 }`}
         </pre>
       )}
 
-      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
+      <p className="text-lg mb-2 text-blue-900">
+        <strong>Now you try!</strong> Use the code below as your starting point. Paste it into the editor and complete the missing lines.
+      </p>
 
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    // Step 1: Declare a variable called count and set it to 1
+
+    // Step 2: Create a while loop that runs while count is less than or equal to 3
+
+    // Step 3: Inside the loop, print count
+
+    // Step 4: Increase count by 1
+  }
+}`}
+      </pre>
+
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
     </div>
   );
 }
@@ -294,27 +480,28 @@ else if (lessonId === '6-3') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        <code>String</code> and <code>boolean</code> are also common.
-        A <code>String</code> always goes in double quotes.
-        A <code>boolean</code> is just <code>true</code> or <code>false</code>.
+        <strong>What is a <code>for</code> loop?</strong><br />
+        A <code>for</code> loop repeats code a specific number of times. You use it when you know in advance how many times you want to loop.
       </p>
 
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`String city = "New York";
-boolean lovesPizza = true;`}
+      <p className="text-lg mb-3">
+        The structure of a <code>for</code> loop looks like this:
+      </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`for (initialization; condition; update) {
+  // Code to repeat
+}`}
       </pre>
 
       <p className="text-lg mb-3">
-        Practice writing your own. Declare a String and a boolean and print the values using the starter code below:
+        It has three parts:
+        <ul className="list-disc ml-6 mt-2">
+          <li><strong>Initialization</strong>: sets up a loop control variable</li>
+          <li><strong>Condition</strong>: runs the loop as long as it’s true</li>
+          <li><strong>Update</strong>: changes the loop variable each time</li>
+        </ul>
       </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    // Write code here
-  }
-}`}
-      </pre>
 
       <button
         onClick={() => setShowHint(!showHint)}
@@ -324,44 +511,68 @@ boolean lovesPizza = true;`}
       </button>
 
       {showHint && (
-        <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    String city = "New York";
-    boolean lovesPizza = true;
-    System.out.println(city);
-    System.out.println(lovesPizza);
-  }
+        <pre className="bg-gray-100 p-3 rounded mb-4">
+{`// This loop prints numbers from 1 to 5
+for (int i = 1; i <= 5; i++) {
+  System.out.println(i);
 }`}
         </pre>
       )}
 
-     <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
+      <p className="text-lg mb-3 text-blue-900">
+        <strong>Now you try!</strong> Use the starter code below. Fill in the missing parts to create a loop that prints numbers from 1 to 3.
+      </p>
 
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
+  public static void main(String[] args) {
+    // Step 1: Write a for loop that runs from 1 to 3
+    // Step 2: Inside the loop, print the current number
+  }
+}`}
+      </pre>
+
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
     </div>
   );
-}
-else if (lessonId === '6-4') {
+}else if (lessonId === '6-4') {
   content = (
     <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        Java can do math with: <code>+</code> <code>-</code> <code>*</code> <code>/</code>.
-        These symbols mean add, subtract, multiply, and divide.
+
+      <p className="mb-4">
+        A <code>do-while</code> loop is like a <code>while</code> loop, but it always runs the code at least once, even if the condition is false.
+      </p>
+
+      <p className="mb-4">
+        Syntax:
       </p>
 
       <pre className="bg-gray-100 p-3 rounded mb-3">
-{`int a = 2;
-int b = 3;
-int sum = a + b; `}
+{`do {
+  // code to run
+} while (condition);`}
+      </pre>
+
+      <p className="mb-4">
+        This is helpful when you want your code to run once before checking a condition. Here's an example:
+      </p>
+
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`int i = 1;
+do {
+  System.out.println(i);
+  i++;
+} while (i <= 5);`}
       </pre>
 
       <p className="text-lg mb-3">
-        Try it: declare your own values and print some operations using the starter code!
+        Try it: Write a <code>do-while</code> loop that prints numbers from 1 to 3 using the starter code below.
       </p>
+
       <pre className="bg-gray-100 p-3 rounded mb-3">
 {`public class Main {
   public static void main(String[] args) {
-    // Write code here
+    // Write your do-while loop here
   }
 }`}
       </pre>
@@ -377,49 +588,58 @@ int sum = a + b; `}
         <pre className="bg-gray-100 p-3 rounded mb-3">
 {`public class Main {
   public static void main(String[] args) {
-    int a = 10;
-    int b = 2;
-    System.out.println(a + b);
-    System.out.println(a - b);
-    System.out.println(a * b);
-    System.out.println(a / b);
+    int i = 1;
+    do {
+      System.out.println(i);
+      i++;
+    } while (i <= 3);
   }
 }`}
         </pre>
       )}
 
       <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
     </div>
   );
 }
-
 else if (lessonId === '6-5') {
   content = (
     <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        Java also has advanced math operators like <code>%</code> (modulus) and <code>++</code> (increment).
-        <br />  <code> %</code> gives you the remainder when dividing numbers.
+      <p className="mb-4">
+        A <strong>nested loop</strong> means putting one loop inside another. This is useful when you want to repeat a task inside another repeated task.
+        For example, printing a grid or multiplying elements in rows and columns.
+      </p>
+
+      <p className="mb-4">
+        The inner loop runs completely every time the outer loop runs once.
       </p>
 
       <pre className="bg-gray-100 p-3 rounded mb-3">
-{`int x = 10;
-int y = 3;
-int remainder = x % y;
-int increment = 10++;`}
+{`for (int i = 1; i <= 3; i++) {
+  for (int j = 1; j <= 2; j++) {
+    System.out.println("i: " + i + ", j: " + j);
+  }
+}`}
       </pre>
 
       <p className="text-lg mb-3">
-        Try it: declare your own numbers and test modulus or increment using the starter code!
+        Try it: Create a nested loop that prints a simple rectangle of stars like this:
+        <br />
+        <code>
+          *****<br />
+          *****<br />
+        </code>
+        (2 rows, 5 stars each)
       </p>
 
       <pre className="bg-gray-100 p-3 rounded mb-3">
 {`public class Main {
   public static void main(String[] args) {
-    // Write code here
+    // Write your nested loops here
   }
 }`}
       </pre>
+
       <button
         onClick={() => setShowHint(!showHint)}
         className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
@@ -431,52 +651,56 @@ int increment = 10++;`}
         <pre className="bg-gray-100 p-3 rounded mb-3">
 {`public class Main {
   public static void main(String[] args) {
-    int x = 10;
-    int y = 3;
-    System.out.println(x % y); // 10 divided by 3 leaves remainder 1
-
-    int z = 5;
-    z++;
-    System.out.println(z); // 6
+    for (int i = 0; i < 2; i++) {
+      for (int j = 0; j < 5; j++) {
+        System.out.print("*");
+      }
+      System.out.println(); // moves to the next line
+    }
   }
 }`}
         </pre>
       )}
 
-    <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
-  </div>
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
+    </div>
   );
 }
-
 else if (lessonId === '6-6') {
   content = (
     <div className="p-6">
       <div className="mb-6">
-        <p className="font-bold mb-2">1. What data type holds text?</p>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'String')} /> String</label><br />
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'int')} /> int</label><br />
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'double')} /> double</label><br />
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'boolean')} /> boolean</label>
+        <p className="font-bold mb-2">1. Which loop is best to use when you know exactly how many times to repeat?</p>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'while')} /> while</label><br />
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'do-while')} /> do-while</label><br />
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'foreach')} /> foreach</label><br />
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'for')} /> for</label>
         {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
       </div>
+
       <div className="mb-6">
-        <p className="font-bold mb-2">2. Which the output for <code>boolean</code>?</p>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'numbers')} /> numbers</label><br />
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'words')} /> words</label><br />
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'true/false')} /> true/false</label><br />
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'symbols')} /> symbols</label>
+        <p className="font-bold mb-2">2. What is the output of this loop?<br/>
+          <code>for(int i = 0; i &lt; 3; i++) {'{'} System.out.print(i); {'}'}</code>
+        </p>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', '0123')} /> 0123</label><br />
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', '123')} /> 123</label><br />
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', '321')} /> 321</label><br />
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', '012')} /> 012</label>
         {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
       </div>
+
       <div className="mb-6">
-        <p className="font-bold mb-2">3. Which symbol adds numbers?</p>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '-')} /> -</label><br />
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '*')} /> *</label><br />
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '/')} /> /</label><br />
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', '+')} /> +</label><br />
+        <p className="font-bold mb-2">3. Which loop guarantees to run at least once?</p>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'for')} /> for</label><br />
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'while')} /> while</label><br />
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'do-while')} /> do-while</label><br />
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'foreach')} /> foreach</label>
         {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
       </div>
-      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
+
+      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+        Submit Quiz
+      </button>
     </div>
   );
 }
@@ -488,147 +712,175 @@ else if (lessonId === '7-1') {
   content = (
     <div className="p-6">
       <p className="text-lg mb-3">
-        <strong>Let’s get interactive!</strong> In Java, you can ask the user questions and grab their answers with the <code>Scanner</code> class.
-      </p>
-
-      <p className="text-lg mb-3 ">
-        First, import Scanner:
-        <br />
-        <code>import java.util.Scanner;</code>
+        <strong>Let’s learn about methods!</strong> In Java, a <strong>method</strong> is a reusable block of code that performs a specific task.
       </p>
 
       <p className="text-lg mb-3">
-        Then, make a Scanner object:
-        <br />
-        <code>Scanner input = new Scanner(System.in);</code>
+        You’ve already used methods like <code>System.out.println()</code>! But you can also write your own.
       </p>
 
       <p className="text-lg mb-3">
-        Here are some ways to get info:
+        A method has this structure:
+        <br />
+        <code>public static returnType methodName(parameters) {'{'} code to run {'}'}</code>
+      </p>
+
+      <p className="text-lg mb-3">
+        Let’s break that down:
         <ul className="list-disc pl-6">
-          <li><code>nextLine()</code> → an entire sentence 🌟</li>
-          <li><code>next()</code> → a single word ✏️</li>
-          <li><code>nextInt()</code> → whole numbers 🔢</li>
-          <li><code>nextDouble()</code> → decimals 🧮</li>
+          <li><code>public static</code>: standard for now — we'll explain more later!</li>
+          <li><code>returnType</code>: what the method gives back (like <code>int</code>, <code>String</code>, or <code>void</code> if nothing)</li>
+          <li><code>methodName</code>: name you give your method (like <code>greet</code>)</li>
+          <li><code>parameters</code>: info your method needs to run (like a name or number)</li>
         </ul>
       </p>
 
-      <p className="text-lg mb-3">
-        Concatenation means joining text together.  
-        In Java, you can combine Strings and other variables using <code>+</code>.  
-        For example:
-        <br/>
-        <code>System.out.println("Hello " + name);</code>
-        <br/>
-        Here, <code>"Hello "</code> and the value of <code>name</code> are combined into one message!
-      </p>
-
-      <p className="text-lg mb-3 font-bold">Here’s a quick example:</p>
+      <p className="text-lg mb-3 font-bold">Here’s a simple example:</p>
 
       <pre className="bg-gray-100 p-3 rounded mb-4">
-{`import java.util.Scanner;
+{`public class Main {
+  public static void greet(String name) {
+    System.out.println("Hello, " + name + "!");
+  }
 
-public class Main {
   public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-
-    System.out.print("Enter the day: ");
-    String day = input.nextLine();
-
-    System.out.println("Today is " + day + "!");
+    greet("Alex");
   }
 }`}
       </pre>
 
-      <p className="text-lg">
-        The result of this code block would be <code>"Today is [day]!"</code>
+      <p className="text-lg mb-3">
+        This program defines a method called <code>greet</code> that takes a name and prints a greeting.  
+        Then it calls that method from <code>main</code> and prints <code>Hello, Alex!</code>.
       </p>
 
-       <img className="w-64 my-4" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aGFwb2RmbmVzdTZjN3AxY21kZDFyM2NlZjE2dHd0cW05dnBrYWx1dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jqMyza0N8JbAl2WjPO/giphy.gif" alt="Input GIF" />
+      <p className="text-lg mb-3">
+        You can reuse the method with different inputs:
+        <br />
+        <code>greet("Taylor");</code> ➝ <code>Hello, Taylor!</code><br />
+        <code>greet("Jordan");</code> ➝ <code>Hello, Jordan!</code>
+      </p>
+
     </div>
   );
 } else if (lessonId === '7-2') {
   content = (
     <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        Let’s use <code>Scanner</code> to get input from the user!
-        The <code>Scanner</code> class lets your program read what someone types.
+
+      <p className="text-lg mb-3">
+        Here’s how you <strong>define</strong> a method:
+        <br />
+        <code>public static void greetUser() { }</code>
       </p>
 
       <p className="text-lg mb-3">
-        Try this: use Scanner to ask the user for their name and greet them! Enter the input in the "STDIN Input" field and execute your code!
+        And here’s how you <strong>call</strong> that method:
+        <br />
+        <code>greetUser();</code>
+        <br />
+        This line runs everything inside the <code>greetUser</code> method.
       </p>
 
-      <p className="text-m mb-3">
-        Tip: Make sure to add the <code>import java.util.Scanner;</code> import to make sure your code compiles!
+      <p className="text-lg mb-3">
+        You can even pass data into methods using <strong>parameters</strong>!
+        For example:
+        <br />
+        <code>public static void greetUser(String name) { }</code>
       </p>
 
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`import java.util.Scanner;
+      <p className="text-lg mb-3 font-bold">Here’s a quick example:</p>
 
-public class Main {
+      <pre className="bg-gray-100 p-3 rounded mb-4">
+{`public class Main {
   public static void main(String[] args) {
-    // Write code here
+    greetUser("Alex");  // calling the method with a name
+  }
+
+  // method definition
+  public static void greetUser(String name) {
+    System.out.println("Hello, " + name + "!");
   }
 }`}
       </pre>
+
+      <p className="text-lg mb-4">
+        In this program:
+        <ul className="list-disc pl-6">
+          <li><code>greetUser</code> is the name of our method</li>
+          <li><code>String name</code> is a parameter the method uses</li>
+          <li><code>System.out.println()</code> prints a greeting using the name</li>
+        </ul>
+      </p>
+
+      <p className="text-lg mb-3">
+        You’ll write your own method now. Try changing the name passed to the method!
+      </p>
+
       <button
         onClick={() => setShowHint(!showHint)}
         className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
       >
-        {showHint ? 'Hide Example' : 'Show Example'}
+        {showHint ? 'Hide Starting Code' : 'Show Starting Code'}
       </button>
 
       {showHint && (
         <pre className="bg-gray-100 p-3 rounded mb-3">
-{`import java.util.Scanner;
-
-public class Main {
+{`public class Main {
   public static void main(String[] args) {
-    Scanner input = new Scanner(System.in);
-    System.out.print("Enter your name: ");
-    String name = input.nextLine();
-    System.out.println("Hello, " + name + "!");
+    // Call your method here!
   }
+
+  // Define your method here!
 }`}
         </pre>
       )}
 
       <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
     </div>
   );
 } else if (lessonId === '7-3') {
   content = (
     <div className="p-6">
       <div className="mb-6">
-        <p className="font-bold mb-2">1. Which class reads user input?</p>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Input')} /> Input</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Printer')} /> Printer</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Scanner')} /> Scanner</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Output')} /> Output</label><br/>
+        <p className="font-bold mb-2">1. What is a method parameter?</p>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'A value returned from a method')} /> A value returned from a method</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'A value passed into a method')} /> A value passed into a method</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'A type of loop')} /> A type of loop</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'A method name')} /> A method name</label><br/>
         {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
       </div>
+
       <div className="mb-6">
-        <p className="font-bold mb-2">2. Which method reads a whole line?</p>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'nextLine')} /> nextLine()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'printLine')} /> printLine()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'next')} /> next()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'line')} /> line()</label><br/>
+        <p className="font-bold mb-2">2. What does a method's return type indicate?</p>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'The name of the method')} /> The name of the method</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'The parameters used')} /> The parameters used</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'The type of value it returns')} /> The type of value it returns</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'The number of lines in the method')} /> The number of lines in the method</label><br/>
         {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
       </div>
+
       <div className="mb-6">
-        <p className="font-bold mb-2">3. What goes in Scanner's parentheses?</p>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System.in</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> System.out</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> Output</label><br/>
+        <p className="font-bold mb-2">3. Which of these is a correct method declaration?</p>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'void hello(String name)')} /> void hello(String name)</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'hello(String name) void')} /> hello(String name) void</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'method void hello()')} /> method void hello()</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'String hello void()')} /> String hello void()</label><br/>
         {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
       </div>
-      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"> Submit Quiz</button>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">4. How do you call a method named <code>greet</code> that takes no parameters?</p>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'greet;')} /> greet;</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'greet[]')} /> greet[]</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'call greet()')} /> call greet()</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'greet();')} /> greet();</label><br/>
+        {quizFeedback.q4 && <p className="text-sm mt-1">{quizFeedback.q4}</p>}
+      </div>
+
+      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
     </div>
   );
-}else if (lessonId === '7-4') {
+} else if (lessonId === '7-4') {
   content = (
     <div className="p-6">
       <div className="mb-6">

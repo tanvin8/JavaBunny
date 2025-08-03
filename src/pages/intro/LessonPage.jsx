@@ -133,7 +133,7 @@ export default function LessonPage() {
   content = (
     <div className="p-6">
       <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s write your first Java program!</strong>  
+        <strong>Let’s write your first Java program! </strong>  
         In Java, you write instructions inside a <span className="text-green-700">class</span>. The program starts running at the <span className="text-purple-700">main</span> method.  
         To show a message on the screen, you use <code className="bg-gray-200 px-1">System.out.println()</code>.
       </p>
