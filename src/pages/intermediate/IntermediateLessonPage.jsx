@@ -53,8 +53,8 @@ export default function IntermediateLessonPage() {
   const submitQuiz = () => {
     const answerKey = {
       '9-6': { q1: 'int[] numbers = new int[5];', q2: 'scores[2]', q3: 'for loop', q4: 'The number of items in the array'},
-      '10-3': { q1: 'String', q2: 'true/false', q3: '+' },
-      '11-1': { q1: 'Scanner', q2: 'nextLine', q3: 'System.in' }
+      '10-3': { q1: 'Hello Alex!', q2: 'The number of characters in a string', q3: 'toUpperCase()', q4: 'Returns "ding"' },
+      '11-1': { q1: 'CodeLab', q2: '5', q3: "nums[2]", q4: 'Java is Fun' }
     }[lessonId] || {};
 
     const feedback = {};
@@ -545,32 +545,89 @@ for (String fruit : fruits) {
 else if (lessonId === '10-1') {
   content = (
     <div className="p-6">
-      <p className="text-lg mb-4">
-        In Java, a <strong>variable</strong> is like a labeled jar that holds information.
-        You must tell Java what type of info each jar can hold — these are called <strong>data types</strong>.
-      </p>
+
       <p className="text-lg mb-3">
-        For example:
-        <ul className="list-disc ml-6 mb-3">
-          <li><code>int</code>: whole numbers like <code>5</code> or <code>-42</code></li>
-          <li><code>double</code>: decimals like <code>3.14</code> or <code>-0.01</code></li>
-          <li><code>String</code>: text, always in double quotes — <code>"Hello!"</code></li>
-          <li><code>boolean</code>: true or false — <code>true</code>, <code>false</code></li>
-        </ul>
+        <code>.toUpperCase</code> turns all letters into uppercase — prints <code>"HELLO"</code>.
       </p>
-      <p className="text-lg mb-3">
-        Declaring means creating the jar and putting something inside:
-      </p>
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`int age = 16;
-double height = 5.8;
-String name = "Sam";
-boolean isStudent = true;`}
+
+      {/* toUpperCase */}
+      <pre className="bg-gray-100 p-3 rounded mb-2">
+{`public class Main {
+  public static void main(String[] args) {
+    String greeting = "hello";
+    System.out.println(greeting.toUpperCase());
+  }
+}
+`}
       </pre>
       <p className="text-lg mb-3">
-        Choosing clear variable names helps you and others understand what they store.
+        <code>.length</code> returns the number of characters — prints <code>6</code>.
       </p>
-      <img className="w-64 my-4" src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" alt="Funny cat coding" />
+
+      {/* length */}
+      <pre className="bg-gray-100 p-3 rounded mb-2">
+{`public class Main {
+  public static void main(String[] args) {
+    String word = "banana";
+    System.out.println(word.length());
+  }
+
+`}
+      </pre>
+      <p className="text-lg mb-3">
+        <code>.substring(#)</code> cuts out part of the string starting at index 5 — prints <code>"morning"</code>.
+      </p>
+
+      {/* substring */}
+      <pre className="bg-gray-100 p-3 rounded mb-2">
+{`public class Main {
+  public static void main(String[] args) {
+    String phrase = "good morning";
+    System.out.println(phrase.substring(5));
+  }
+`}
+      </pre>
+      <p className="text-lg mb-3">
+        <code>.equals(x)</code> checks if two strings are exactly the same — this prints <code>false</code> because of the capital "H".
+      </p>
+
+      {/* equals */}
+      <pre className="bg-gray-100 p-3 rounded mb-2">
+{`public class Main {
+  public static void main(String[] args) {
+    String a = "hi";
+    String b = "Hi";
+    System.out.println(a.equals(b));
+  }
+`}
+      </pre>
+      <p className="text-lg mb-3">
+        <code>.charAt(#)</code> returns the character at a certain position (starts at 0) — prints <code>'S'</code>.
+      </p>
+
+      {/* charAt */}
+      <pre className="bg-gray-100 p-3 rounded mb-2">
+{`public class Main {
+  public static void main(String[] args) {
+    String name = "Sophie";
+    System.out.println(name.charAt(0));
+  }
+
+`}
+      </pre>
+
+      <p className="text-lg mt-6 text-black-800 font-medium">
+        Try using these methods in the code editor below!
+      </p>
+
+      <div
+        data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae"
+        style={{
+          border: '1px solid #ccc',
+          borderRadius: '8px',
+          overflow: 'hidden',
+        }}
+      ></div>
     </div>
   );
 }
@@ -578,190 +635,274 @@ boolean isStudent = true;`}
 else if (lessonId === '10-2') {
   content = (
     <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        <strong>Let’s practice with</strong> <code>int</code> and <code>double</code>. Below is a starting structure — paste it into the code editor and execute to see your result!
+      <p className="text-lg mb-4 text-black-900">
+        Concatenation means combining strings (text) together using the <code>+</code> operator.
+        It’s how you can build longer messages by joining words, variables, or even numbers!
       </p>
 
-      <pre className="bg-gray-100 p-3 rounded mb-3">
+      <pre className="bg-gray-100 p-3 rounded mb-4">
 {`public class Main {
   public static void main(String[] args) {
-    // Declare an int called age
-    // Declare a double called height
-    // Print them both
+    String firstName = "Tony";
+    String lastName = "Stark";
+    int age = 47;
+
+    // Combine first and last name
+    System.out.println("Name: " + firstName + " " + lastName);
+
+    // Add text and a number
+    System.out.println("Age: " + age);
+
+    // Build a full sentence
+    System.out.println(firstName + " is " + age + " years old.");
   }
 }`}
       </pre>
 
-      <button
-        onClick={() => setShowHint(!showHint)}
-        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
-      >
-        {showHint ? 'Hide Example' : 'Show Example'}
-      </button>
-
-      {showHint && (
-        <pre className="bg-gray-100 p-3 rounded mb-4">
-{`public class Main {
-  public static void main(String[] args) {
-    int age = 16;
-    double height = 5.8;
-    System.out.println(age);
-    System.out.println(height);
-  }
-}`}
-        </pre>
-      )}
-
-      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
-
-    </div>
-  );
-}else if (lessonId === '10-3') {
-  content = (
-    <div className="p-6">
-      <p className="text-lg mb-4 text-blue-900">
-        Java can do math with: <code>+</code> <code>-</code> <code>*</code> <code>/</code>.
-        These symbols mean add, subtract, multiply, and divide.
-      </p>
-
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`int a = 2;
-int b = 3;
-int sum = a + b; `}
-      </pre>
+      <p className="text-lg mb-3 font-semibold text-purple-800">What this code does:</p>
+      <ul className="list-disc ml-6 mb-4 text-lg">
+        <li><code>String firstName = "Tony";</code> – Creates a string variable to hold the first name.</li>
+        <li><code>System.out.println("Name: " + firstName + " " + lastName);</code> – Combines strings and variables to print a full name.</li>
+        <li><code>" + age</code> – Converts the number to text and adds it into the sentence.</li>
+        <li>Java automatically turns numbers into strings when you use <code>+</code> with text.</li>
+      </ul>
 
       <p className="text-lg mb-3">
-        Try it: declare your own values and print some operations using the starter code!
+        Try it yourself! Paste this into the code editor and change the name or age to make it your own.
       </p>
-      <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    // Write code here
-  }
-}`}
-      </pre>
-
-      <button
-        onClick={() => setShowHint(!showHint)}
-        className="bg-yellow-500 text-black px-4 py-2 rounded mb-4 hover:bg-yellow-600"
-      >
-        {showHint ? 'Hide Example' : 'Show Example'}
-      </button>
-
-      {showHint && (
-        <pre className="bg-gray-100 p-3 rounded mb-3">
-{`public class Main {
-  public static void main(String[] args) {
-    int a = 10;
-    int b = 2;
-    System.out.println(a + b);
-    System.out.println(a - b);
-    System.out.println(a * b);
-    System.out.println(a / b);
-  }
-}`}
-        </pre>
-      )}
 
       <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
+    </div>
+  );
+} else if (lessonId === '10-3') {
+  content = (
+    <div className="p-6">
+      <div className="mb-6">
+        <p className="font-bold mb-2">1. What is the result of the following code?</p>
+        <pre className="bg-gray-100 p-2 rounded mb-2">
+{`String name = "Alex";
+System.out.println("Hello " + name + "!");`}
+        </pre>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Hello Alex!')} /> Hello Alex!</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Hello name!')} /> Hello name!</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Alex Hello!')} /> Alex Hello!</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Syntax Error')} /> Syntax Error</label><br/>
+        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
+      </div>
 
+      <div className="mb-6">
+        <p className="font-bold mb-2">2. What does the <code>length()</code> method return?</p>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'The number of words in a string')} /> The number of words in a string</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'The size of an array')} /> The size of an array</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'The number of characters in a string')} /> The number of characters in a string</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'The number of lines in a program')} /> The number of lines in a program</label><br/>
+        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">3. Which method makes all characters in a string uppercase?</p>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'makeUpper()')} /> makeUpper()</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'toUpperCase()')} /> toUpperCase()</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'upper()')} /> upper()</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'capAll()')} /> capAll()</label><br/>
+        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">4. What does <code>substring(2)</code> do on the string <code>"Coding"</code>?</p>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Returns "Coding"')} /> Returns "Coding"</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Returns "Cod"')} /> Returns "Cod"</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Returns "ing"')} /> Returns "ing"</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Returns "ding"')} /> Returns "ding"</label><br/>
+        {quizFeedback.q4 && <p className="text-sm mt-1">{quizFeedback.q4}</p>}
+      </div>
+
+      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
     </div>
   );
 }
+
 
 // === UNIT 11 ===
 
 else if (lessonId === '11-1') {
   content = (
     <div className="p-6">
+      <div className="mb-6">
+        <p className="font-bold mb-2">1. What does the following line output?</p>
+        <pre className="bg-gray-100 p-2 rounded mb-2">
+          {`String name = "Code";\nSystem.out.println(name + "Lab");`}
+        </pre>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'nameLab')} /> nameLab</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Code Lab')} /> Code Lab</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Error')} /> Error</label><br/>
+        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'CodeLab')} /> CodeLab</label><br/>
+        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">2. What is the output of this code?</p>
+        <pre className="bg-gray-100 p-2 rounded mb-2">
+          {`String s = "hello";\nSystem.out.println(s.length());`}
+        </pre>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', '5')} /> 5</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', '4')} /> 4</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', '6')} /> 6</label><br/>
+        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Error')} /> Error</label><br/>
+        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">3. How do you access the third element in this array?</p>
+        <pre className="bg-gray-100 p-2 rounded mb-2">
+          {`int[] nums = {2, 4, 6, 8};`}
+        </pre>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'nums(3)')} /> nums(3)</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'nums[2]')} /> nums[2]</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'nums[3]')} /> nums[3]</label><br/>
+        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'nums[1]')} /> nums[1]</label><br/>
+        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
+      </div>
+
+      <div className="mb-6">
+        <p className="font-bold mb-2">4. What does the following code print?</p>
+        <pre className="bg-gray-100 p-2 rounded mb-2">
+{`String a = "Java";
+String b = "Fun";
+System.out.println(a + " is " + b);`}
+        </pre>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Java is Fun')} /> Java is Fun</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'JavaFun')} /> JavaFun</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Java + is + Fun')} /> Java + is + Fun</label><br/>
+        <label><input type="radio" name="q4" onChange={() => handleQuizChange('q4', 'Error')} /> Error</label><br/>
+        {quizFeedback.q4 && <p className="text-sm mt-1">{quizFeedback.q4}</p>}
+      </div>
+
+      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">
+        Submit Quiz
+      </button>
+    </div>
+  );
+}
+ else if (lessonId === '11-2') {
+  content = (
+    <div className="p-6">
       <p className="text-lg mb-3">
-        <strong>Let’s get interactive!</strong> In Java, you can ask the user questions and grab their answers with the <code>Scanner</code> class.
-      </p>
-
-      <p className="text-lg mb-3 ">
-        First, import Scanner:
-        <br />
-        <code>import java.util.Scanner;</code>
+        <strong>Final mini project:</strong> Build a grade calculator!
       </p>
 
       <p className="text-lg mb-3">
-        Then, make a Scanner object:
-        <br />
-        <code>Scanner input = new Scanner(System.in);</code>
+        Your program should ask the user to enter 5 assignment scores (from 0 to 100). 
+        Then, calculate the average and print the letter grade based on this scale:
       </p>
+
+      <ul className="list-disc ml-6 mb-3">
+        <li><strong>A</strong>: 90-100</li>
+        <li><strong>B</strong>: 80-89</li>
+        <li><strong>C</strong>: 70-79</li>
+        <li><strong>D</strong>: 60-69</li>
+        <li><strong>F</strong>: Below 60</li>
+      </ul>
 
       <p className="text-lg mb-3">
-        Here are some ways to get info:
-        <ul className="list-disc pl-6">
-          <li><code>nextLine()</code> → an entire sentence 🌟</li>
-          <li><code>next()</code> → a single word ✏️</li>
-          <li><code>nextInt()</code> → whole numbers 🔢</li>
-          <li><code>nextDouble()</code> → decimals 🧮</li>
-        </ul>
+        Enter your 5 scores in the "STDIN Input" field with each number on a new line, and use <code>Scanner</code> for input.
       </p>
 
-      <p className="text-lg mb-3">
-        Concatenation means joining text together.  
-        In Java, you can combine Strings and other variables using <code>+</code>.  
-        For example:
-        <br/>
-        <code>System.out.println("Hello " + name);</code>
-        <br/>
-        Here, <code>"Hello "</code> and the value of <code>name</code> are combined into one message!
-      </p>
+      <pre className="bg-gray-100 p-3 rounded mb-3">
+{`import java.util.Scanner;
 
-      <p className="text-lg mb-3 font-bold">Here’s a quick example:</p>
+public class Main {
+  public static void main(String[] args) {
+    // Write your code here
+  }
+}`}
+      </pre>
 
-      <pre className="bg-gray-100 p-3 rounded mb-4">
+      <div className="mb-4">
+        <button
+          onClick={() => setShowHint1(!showHint1)}
+          className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600"
+        >
+          {showHint1 ? 'Hide Hint 1' : 'Show Hint 1'}
+        </button>
+        {showHint1 && (
+          <p className="bg-gray-100 p-3 rounded mt-2">
+            <strong>Hint 1:</strong> You can use a loop to read 5 numbers and add them together.
+          </p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <button
+          onClick={() => setShowHint2(!showHint2)}
+          className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600"
+        >
+          {showHint2 ? 'Hide Hint 2' : 'Show Hint 2'}
+        </button>
+        {showHint2 && (
+          <p className="bg-gray-100 p-3 rounded mt-2">
+            <strong>Hint 2:</strong> After collecting the scores, divide the total by 5 to get the average.
+          </p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <button
+          onClick={() => setShowHint3(!showHint3)}
+          className="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-600"
+        >
+          {showHint3 ? 'Hide Hint 3' : 'Show Hint 3'}
+        </button>
+        {showHint3 && (
+          <p className="bg-gray-100 p-3 rounded mt-2">
+            <strong>Hint 3:</strong> Use <code>if</code>/<code>else if</code> statements to determine the letter grade.
+          </p>
+        )}
+      </div>
+
+      <div className="mb-4">
+        <button
+          onClick={() => setShowSolution(!showSolution)}
+          className="bg-green-500 text-black px-4 py-2 rounded hover:bg-green-600"
+        >
+          {showSolution ? 'Hide Solution' : 'Show Solution'}
+        </button>
+        {showSolution && (
+          <pre className="bg-gray-100 p-3 rounded mt-2">
 {`import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
     Scanner input = new Scanner(System.in);
+    int total = 0;
 
-    System.out.print("Enter the day: ");
-    String day = input.nextLine();
+    for (int i = 1; i <= 5; i++) {
+      System.out.print("Enter score " + i + ": ");
+      int score = input.nextInt();
+      total += score;
+    }
 
-    System.out.println("Today is " + day + "!");
+    double average = total / 5.0;
+    System.out.println("Average score: " + average);
+
+    if (average >= 90) {
+      System.out.println("Grade: A");
+    } else if (average >= 80) {
+      System.out.println("Grade: B");
+    } else if (average >= 70) {
+      System.out.println("Grade: C");
+    } else if (average >= 60) {
+      System.out.println("Grade: D");
+    } else {
+      System.out.println("Grade: F");
+    }
   }
 }`}
-      </pre>
+          </pre>
+        )}
+      </div>
 
-      <p className="text-lg">
-        The result of this code block would be <code>"Today is [day]!"</code>
-      </p>
-
-       <img className="w-64 my-4" src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aGFwb2RmbmVzdTZjN3AxY21kZDFyM2NlZjE2dHd0cW05dnBrYWx1dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jqMyza0N8JbAl2WjPO/giphy.gif" alt="Input GIF" />
-    </div>
-  );
-} else if (lessonId === '11-2') {
-  content = (
-    <div className="p-6">
-      <div className="mb-6">
-        <p className="font-bold mb-2">1. Which class reads user input?</p>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Input')} /> Input</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Printer')} /> Printer</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Scanner')} /> Scanner</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Output')} /> Output</label><br/>
-        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
-      </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">2. Which method reads a whole line?</p>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'nextLine')} /> nextLine()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'printLine')} /> printLine()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'next')} /> next()</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'line')} /> line()</label><br/>
-        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
-      </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">3. What goes in Scanner's parentheses?</p>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System.in</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> System.out</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.in')} /> System</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'System.out')} /> Output</label><br/>
-        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
-      </div>
-      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800"> Submit Quiz</button>
+      <div data-pym-src="https://www.jdoodle.com/embed/v1/9beec9c9519134ae" />
     </div>
   );
 }
@@ -769,29 +910,73 @@ public class Main {
 
  else if (lessonId === '12-1') {
   content = (
-    <div className="p-6">
-      <div className="mb-6">
-        <p className="font-bold mb-2">1. Which keyword prints output?</p>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'System.out.println')} /> System.out.println</label><br/>
-        <label><input type="radio" name="q1" onChange={() => handleQuizChange('q1', 'Scanner')} /> Scanner</label>
-        {quizFeedback.q1 && <p className="text-sm mt-1">{quizFeedback.q1}</p>}
+    <div className="p-6 space-y-6">
+      <h2 className="text-xl font-bold mb-2">Congratulations on Completing JavaBunny!</h2>
+      <p>You've built a solid foundation in Java programming. Here's what you can explore next—completely free:</p>
+
+      <div>
+        <h3 className="font-semibold">1. Learn Java Deeper with Free Textbooks</h3>
+        <ul className="list-disc list-inside ml-4">
+          <li>
+            <a href="https://introcs.cs.princeton.edu/java/home/" target="_blank" className="text-blue-600 underline">Intro to Programming in Java - Princeton</a> — a beginner-friendly textbook with examples and exercises.
+          </li>
+          <li>
+            <a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/user/gchen/www/download/java/LearnJava.pdf" target="_blank" className="text-blue-600 underline">Teach Yourself Java in 21 days textbook</a> — great for learning the basics in less than a month
+          </li>
+        </ul>
       </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">2. Which class reads input?</p>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'Scanner')} /> Scanner</label><br/>
-        <label><input type="radio" name="q2" onChange={() => handleQuizChange('q2', 'System')} /> System</label>
-        {quizFeedback.q2 && <p className="text-sm mt-1">{quizFeedback.q2}</p>}
+
+      <div>
+        <h3 className="font-semibold">2. Take Free Java Courses</h3>
+        <ul className="list-disc list-inside ml-4">
+          <li>
+            <a href="https://www.edx.org/learn/java" target="_blank" className="text-blue-600 underline">Java Courses on edX (free audit)</a> — real university-level content.
+          </li>
+          <li>
+            <a href="https://www.codecademy.com/learn/learn-java" target="_blank" className="text-blue-600 underline">Codecademy Learn Java</a> — interactive and visual.
+          </li>
+        </ul>
       </div>
-      <div className="mb-6">
-        <p className="font-bold mb-2">3. What is fixing code called?</p>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'Debugging')} /> Debugging</label><br/>
-        <label><input type="radio" name="q3" onChange={() => handleQuizChange('q3', 'Designing')} /> Designing</label>
-        {quizFeedback.q3 && <p className="text-sm mt-1">{quizFeedback.q3}</p>}
+
+      <div>
+        <h3 className="font-semibold">3. Practice with Projects & Challenges</h3>
+        <ul className="list-disc list-inside ml-4">
+          <li>
+            Build small games (Tic Tac Toe, Guess the Number, Hangman).
+          </li>
+          <li>
+            Solve Java problems on <a href="https://leetcode.com/problemset/all/" target="_blank" className="text-blue-600 underline">LeetCode</a> and <a href="https://codingbat.com/java" target="_blank" className="text-blue-600 underline">CodingBat</a>.
+          </li>
+          <li>
+            Create a simple portfolio website to display your code using GitHub Pages.
+          </li>
+        </ul>
       </div>
-      <button onClick={submitQuiz} className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800">Submit Quiz</button>
+
+      <div>
+        <h3 className="font-semibold">4. Learn About Java Frameworks and Tools</h3>
+        <ul className="list-disc list-inside ml-4">
+          <li>Explore basic Android development using <a href="https://developer.android.com/codelabs/build-your-first-android-app" target="_blank" className="text-blue-600 underline">Android Studio</a>.</li>
+          <li>Learn about JavaFX to make GUI apps (desktop programs with buttons and menus).</li>
+          <li>Read official docs: <a href="https://docs.oracle.com/javase/tutorial/" target="_blank" className="text-blue-600 underline">Oracle’s Java Tutorials</a>.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 className="font-semibold">5. What's Next?</h3>
+        <p>Now that you know the basics, it's time to:</p>
+        <ul className="list-disc list-inside ml-4">
+          <li>Pick a specialization — like Android apps, games, or backend servers.</li>
+          <li>Work on bigger projects with classes, files, and APIs.</li>
+          <li>Stay curious and keep learning!</li>
+        </ul>
+      </div>
+
+      <p className="mt-4 font-bold">You’ve officially outgrown JavaBunny. Time to hop into your next adventure!</p>
     </div>
   );
-} 
+}
+
 
   return (
     <div className="p-[80px] bg-champagne font-quicksand py-[50px]">
