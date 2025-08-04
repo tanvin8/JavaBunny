@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="bg-champagne font-quicksand text-xl sticky top-0 z-50">
       <div className="flex justify-between items-center px-6 py-4 md:justify-center">
-        
+        {/* Logo or optional left space */}
         <div className="md:hidden">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -40,7 +40,7 @@ function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <div className=' md:flex items-center space-x-8 text-m justify-center mt-[70px]'>
+        <div className="hidden md:flex items-center space-x-8 text-m justify-center mt-[70px]">
           <Link
             to="/"
             className="hover:text-golden font-bold text-center"
@@ -70,7 +70,7 @@ function Navbar() {
 
       {/* Mobile Nav Dropdown */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col items-center space-y-4 pb-4">
+        <div className="md:hidden flex flex-col items-center space-y-4 pb-4 mt-[70px]">
           <Link
             to="/"
             className="hover:text-golden font-bold text-center"
